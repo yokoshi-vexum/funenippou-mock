@@ -24,31 +24,37 @@
     </div>
 
     <div class="field">
-      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
-      <input type="text" value="○○商事 様" readonly class="prefilled">
+      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
     </div>
 
     <div class="field">
-      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
-      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
+      <label>乗船区分<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input id="boardingDisplay" type="text" value="🎌 貸切" readonly class="prefilled">
+    </div>
+
+    <div class="field" id="groupNameRow">
+      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input id="groupNameDisplay" type="text" value="○○商事 様" readonly class="prefilled">
+      <div class="hint">貸切時のみ表示</div>
     </div>
 
     <div class="section-title">下船時の確認</div>
 
     <div class="field">
-      <label>ロープ</label>
+      <label>ロープ<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">確認すみ</label>
     </div>
 
     <div class="field">
-      <label>船の戸締り</label>
+      <label>船の戸締り<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">確認すみ</label>
     </div>
 
     <div class="section-title">支払い</div>
 
     <div class="field">
-      <label>支払い</label>
+      <label>支払い<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">事務所に渡しすみ</label>
     </div>
 
@@ -71,11 +77,32 @@
       <textarea placeholder="気になった点があれば自由に記入"></textarea>
     </div>
 
+    <div class="toggle-mock">
+      <strong>モック表示切替：</strong>
+      <a href="?type=norai">乗合</a> ／
+      <a href="?type=kashikiri">貸切</a>
+    </div>
+
   </div>
 
   <div class="fixed-bottom">
     <a href="confirm.html?from=3" class="btn-primary">送信する</a>
   </div>
 </div>
+<script>
+  (function(){
+    var params = new URLSearchParams(location.search);
+    var type = params.get('type') || 'kashikiri';
+    var boardingEl = document.getElementById('boardingDisplay');
+    var groupRow = document.getElementById('groupNameRow');
+    if (type === 'norai') {
+      boardingEl.value = '👥 乗合';
+      groupRow.style.display = 'none';
+    } else {
+      boardingEl.value = '🎌 貸切';
+      groupRow.style.display = '';
+    }
+  })();
+</script>
 </body>
 </html>

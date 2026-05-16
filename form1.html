@@ -29,8 +29,25 @@
     </div>
 
     <div class="field">
+      <label>昼／夜<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="dn">☀️ 昼</label>
+        <label class="option"><input type="radio" name="dn">🌙 夜</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>乗船区分<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="boarding" value="norai">👥 乗合</label>
+        <label class="option"><input type="radio" name="boarding" value="kashikiri">🎌 貸切</label>
+      </div>
+    </div>
+
+    <div class="field" id="groupNameField" style="display: none;">
       <label>団体名<span class="required">必須</span></label>
       <input type="text" placeholder="例：○○商事 様">
+      <div class="hint">貸切時のみ記入</div>
     </div>
 
     <div class="field">
@@ -44,18 +61,10 @@
       </select>
     </div>
 
-    <div class="field">
-      <label>昼／夜<span class="required">必須</span></label>
-      <div class="option-grid">
-        <label class="option"><input type="radio" name="dn">☀️ 昼</label>
-        <label class="option"><input type="radio" name="dn">🌙 夜</label>
-      </div>
-    </div>
-
     <div class="section-title">船のチェック</div>
 
     <div class="field">
-      <label>船の水</label>
+      <label>船の水<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">十分である</label>
     </div>
 
@@ -68,52 +77,52 @@
     </div>
 
     <div class="field">
-      <label>エンジン</label>
+      <label>エンジン<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">良好</label>
     </div>
 
     <div class="field">
-      <label>発電機</label>
+      <label>発電機<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">良好</label>
     </div>
 
     <div class="field">
-      <label>カラオケ</label>
+      <label>カラオケ<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">特に異常なし</label>
     </div>
 
     <div class="field">
-      <label>マイク</label>
+      <label>マイク<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">特に異常なし</label>
     </div>
 
     <div class="field">
-      <label>冷蔵庫</label>
+      <label>冷蔵庫<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">電源が入っている</label>
       <div style="margin-top:8px;">
-        <label style="font-size:13px;color:#6b7280;">温度（℃）</label>
+        <label style="font-size:13px;color:#998166;">温度（℃）<span class="required">必須</span></label>
         <input type="number" placeholder="例：4" style="margin-top:4px;">
       </div>
     </div>
 
     <div class="field">
-      <label>冷水器</label>
+      <label>冷水器<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">電源が入っていて冷えている</label>
     </div>
 
     <div class="field">
-      <label>食洗機洗剤</label>
+      <label>食洗機洗剤<span class="required">必須</span></label>
       <label class="option"><input type="checkbox">確認すみ</label>
     </div>
 
     <div class="field">
-      <label>食器・グラス汚れ</label>
-      <input type="text" placeholder="汚れていた箇所（あれば記入）">
-      <div class="hint">任意：洗浄済みの場合に記入</div>
+      <label>食器・グラス汚れ<span class="required">必須</span></label>
+      <input type="text" placeholder="汚れがなければ「なし」と入力">
+      <div class="hint">汚れていた場合は箇所を記入</div>
     </div>
 
     <div class="field">
-      <label>ちょうちんの電球</label>
+      <label>ちょうちんの電球<span class="required">必須</span></label>
       <div class="option-list">
         <label class="option"><input type="radio" name="lt">球切れなし</label>
         <label class="option"><input type="radio" name="lt">一部球切れの為、交換すみ</label>
@@ -123,7 +132,7 @@
     <div class="section-title">当日のメンバー</div>
 
     <div class="field">
-      <label>社員（チェック）</label>
+      <label>社員（チェック）<span class="required">必須</span></label>
       <div class="option-list">
         <label class="option"><input type="checkbox">山田 太郎</label>
         <label class="option"><input type="checkbox">鈴木 一郎</label>
@@ -136,7 +145,7 @@
     <div class="field">
       <label>アルバイト（自由記入）</label>
       <textarea placeholder="例：&#10;田中 花子&#10;伊藤 美咲"></textarea>
-      <div class="hint">1行に1名・複数可</div>
+      <div class="hint">アルバイトがいない日は空欄でOK</div>
     </div>
 
     <div class="field">
@@ -153,5 +162,20 @@
     <a href="confirm.html?from=1" class="btn-primary">送信する</a>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var radios = document.querySelectorAll('input[name="boarding"]');
+    var field = document.getElementById('groupNameField');
+    function update() {
+      var checked = document.querySelector('input[name="boarding"]:checked');
+      field.style.display = (checked && checked.value === 'kashikiri') ? 'block' : 'none';
+    }
+    radios.forEach(function(r) {
+      r.addEventListener('change', update);
+      r.addEventListener('click', update);
+    });
+    update();
+  });
+</script>
 </body>
 </html>

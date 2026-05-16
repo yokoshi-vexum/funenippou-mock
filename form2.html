@@ -24,14 +24,19 @@
     </div>
 
     <div class="field">
-      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
-      <input type="text" value="○○商事 様" class="prefilled">
-      <div class="hint">必要なら編集可</div>
+      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
     </div>
 
     <div class="field">
-      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
-      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
+      <label>乗船区分<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input id="boardingDisplay" type="text" value="🎌 貸切" readonly class="prefilled">
+    </div>
+
+    <div class="field" id="groupNameRow">
+      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input id="groupNameDisplay" type="text" value="○○商事 様" readonly class="prefilled">
+      <div class="hint">貸切時のみ表示</div>
     </div>
 
     <div class="section-title">記入者</div>
@@ -50,16 +55,6 @@
       <div class="hint">区分が「社員」の場合はプルダウンに切り替わる</div>
     </div>
 
-    <div class="section-title">乗船区分</div>
-
-    <div class="field">
-      <label>乗船区分<span class="required">必須</span></label>
-      <div class="option-grid">
-        <label class="option"><input type="radio" name="bt">乗合</label>
-        <label class="option"><input type="radio" name="bt">貸切</label>
-      </div>
-    </div>
-
     <div class="section-title">お客様の様子</div>
 
     <div class="field">
@@ -72,7 +67,7 @@
     </div>
 
     <div class="field">
-      <label>理由（任意）</label>
+      <label>理由<span class="required">必須</span></label>
       <textarea placeholder="何を特に喜んでいたか、もしくは喜んでいなかったか"></textarea>
     </div>
 
@@ -88,7 +83,7 @@
     </div>
 
     <div class="field">
-      <label>食べた種類（複数選択）</label>
+      <label>食べた種類（複数選択）<span class="required">必須</span></label>
       <div class="option-list">
         <label class="option"><input type="checkbox">刺身盛り合わせ</label>
         <label class="option"><input type="checkbox">天ぷら</label>
@@ -101,7 +96,7 @@
     </div>
 
     <div class="field">
-      <label>残った種類（複数選択）</label>
+      <label>残った種類（複数選択）<span class="required">必須</span></label>
       <div class="option-list">
         <label class="option"><input type="checkbox">刺身盛り合わせ</label>
         <label class="option"><input type="checkbox">天ぷら</label>
@@ -124,7 +119,7 @@
     </div>
 
     <div class="field">
-      <label>飲んだ種類（複数選択）</label>
+      <label>飲んだ種類（複数選択）<span class="required">必須</span></label>
       <div class="option-list">
         <label class="option"><input type="checkbox">ビール（生）</label>
         <label class="option"><input type="checkbox">日本酒</label>
@@ -136,7 +131,7 @@
     </div>
 
     <div class="field">
-      <label>飲まなかった種類（複数選択）</label>
+      <label>飲まなかった種類（複数選択）<span class="required">必須</span></label>
       <div class="option-list">
         <label class="option"><input type="checkbox">ビール（生）</label>
         <label class="option"><input type="checkbox">日本酒</label>
@@ -154,11 +149,32 @@
       <textarea placeholder="自由記入"></textarea>
     </div>
 
+    <div class="toggle-mock">
+      <strong>モック表示切替：</strong>
+      <a href="?type=norai">乗合</a> ／
+      <a href="?type=kashikiri">貸切</a>
+    </div>
+
   </div>
 
   <div class="fixed-bottom">
     <a href="confirm.html?from=2" class="btn-primary">送信する</a>
   </div>
 </div>
+<script>
+  (function(){
+    var params = new URLSearchParams(location.search);
+    var type = params.get('type') || 'kashikiri';
+    var boardingEl = document.getElementById('boardingDisplay');
+    var groupRow = document.getElementById('groupNameRow');
+    if (type === 'norai') {
+      boardingEl.value = '👥 乗合';
+      groupRow.style.display = 'none';
+    } else {
+      boardingEl.value = '🎌 貸切';
+      groupRow.style.display = '';
+    }
+  })();
+</script>
 </body>
 </html>
