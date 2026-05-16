@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>③ 乗船後｜船日報</title>
+<title>乗船中（アルバイト記入）｜船日報</title>
 <link rel="stylesheet" href="common.css">
 </head>
 <body>
 <div class="mock-badge">MOCK</div>
 <div class="app">
   <header>
-    <h1>③ 乗船後チェック</h1>
-    <div class="sub">船長記入</div>
+    <h1>乗船中（アルバイト記入）</h1>
+    <div class="sub">第十八あみ達丸</div>
   </header>
 
   <div class="content">
@@ -39,42 +39,141 @@
       <div class="hint">貸切時のみ表示</div>
     </div>
 
-    <div class="section-title">下船時の確認</div>
+    <div class="section-title">記入者</div>
 
     <div class="field">
-      <label>ロープ<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">確認すみ</label>
+      <label>区分<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="kw">社員</label>
+        <label class="option"><input type="radio" name="kw">アルバイト</label>
+      </div>
     </div>
 
     <div class="field">
-      <label>船の戸締り<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">確認すみ</label>
+      <label>名前（アルバイト）<span class="required">必須</span></label>
+      <input type="text" placeholder="例：田中 花子">
+      <div class="hint">区分が「社員」の場合はプルダウンに切り替わる</div>
     </div>
 
-    <div class="section-title">支払い</div>
+    <div class="section-title">お客様の様子</div>
 
     <div class="field">
-      <label>支払い<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">事務所に渡しすみ</label>
-    </div>
-
-    <div class="field">
-      <label>支払方法<span class="required">必須</span></label>
+      <label>反応<span class="required">必須</span></label>
       <select>
         <option value="">選択してください</option>
-        <option>現金</option>
-        <option>カード</option>
-        <option>振込</option>
-        <option>後日請求</option>
+        <option>とても喜んでいた</option>
+        <option>まあまあ喜んでいた</option>
+        <option>あまり喜んでなかった</option>
       </select>
-      <div class="hint">マスタ管理で項目を追加できます</div>
     </div>
 
-    <div class="section-title">コメント</div>
+    <div class="field">
+      <label>理由<span class="required">必須</span></label>
+      <textarea placeholder="何を特に喜んでいたか、もしくは喜んでいなかったか"></textarea>
+    </div>
+
+    <div class="section-title">食事</div>
 
     <div class="field">
-      <label>コメント欄（任意）</label>
-      <textarea placeholder="気になった点があれば自由に記入"></textarea>
+      <label>食べた量<span class="required">必須</span></label>
+      <select>
+        <option value="">選択してください</option>
+        <option>よく食べた</option>
+        <option>ふつう</option>
+        <option>あまり食べなかった</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>食べた種類（複数選択・任意）</label>
+      <div class="multiselect" data-name="食べた種類">
+        <button type="button" class="multiselect-button" onclick="toggleMultiselect(this)">
+          <span class="multiselect-label">選択してください</span>
+          <span class="multiselect-arrow">▼</span>
+        </button>
+        <div class="multiselect-options" style="display:none;">
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">刺身盛り合わせ</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">天ぷら</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">唐揚げ</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">茶碗蒸し</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">焼き魚</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">特になし</label>
+        </div>
+      </div>
+      <div class="hint">タップして選択肢を開く・複数選択可</div>
+    </div>
+
+    <div class="field">
+      <label>残った種類（複数選択・任意）</label>
+      <div class="multiselect" data-name="残った種類">
+        <button type="button" class="multiselect-button" onclick="toggleMultiselect(this)">
+          <span class="multiselect-label">選択してください</span>
+          <span class="multiselect-arrow">▼</span>
+        </button>
+        <div class="multiselect-options" style="display:none;">
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">刺身盛り合わせ</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">天ぷら</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">唐揚げ</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">茶碗蒸し</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">焼き魚</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">特になし</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">ドリンク</div>
+
+    <div class="field">
+      <label>飲んだ量<span class="required">必須</span></label>
+      <select>
+        <option value="">選択してください</option>
+        <option>よく飲んだ</option>
+        <option>普通</option>
+        <option>あまり飲まなかった</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>飲んだ種類(複数選択・任意)</label>
+      <div class="multiselect" data-name="飲んだ種類">
+        <button type="button" class="multiselect-button" onclick="toggleMultiselect(this)">
+          <span class="multiselect-label">選択してください</span>
+          <span class="multiselect-arrow">▼</span>
+        </button>
+        <div class="multiselect-options" style="display:none;">
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">ビール（生）</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">日本酒</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">焼酎</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">ハイボール</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">ソフトドリンク</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">特になし</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>飲まなかった種類（複数選択・任意）</label>
+      <div class="multiselect" data-name="飲まなかった種類">
+        <button type="button" class="multiselect-button" onclick="toggleMultiselect(this)">
+          <span class="multiselect-label">選択してください</span>
+          <span class="multiselect-arrow">▼</span>
+        </button>
+        <div class="multiselect-options" style="display:none;">
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">ビール（生）</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">日本酒</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">焼酎</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">ハイボール</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">ソフトドリンク</label>
+          <label class="option"><input type="checkbox" onchange="updateMultiselectLabel(this)">特になし</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">備考</div>
+
+    <div class="field">
+      <label>備考（任意）</label>
+      <textarea placeholder="自由記入"></textarea>
     </div>
 
     <div class="toggle-mock">
@@ -90,6 +189,7 @@
   </div>
 </div>
 <script>
+  // 乗合/貸切 引き継ぎ
   (function(){
     var params = new URLSearchParams(location.search);
     var type = params.get('type') || 'kashikiri';
@@ -103,6 +203,42 @@
       groupRow.style.display = '';
     }
   })();
+
+  // マルチセレクト：開閉
+  function toggleMultiselect(btn) {
+    var wrap = btn.closest('.multiselect');
+    var opts = wrap.querySelector('.multiselect-options');
+    var isOpen = opts.style.display !== 'none';
+    opts.style.display = isOpen ? 'none' : 'flex';
+    wrap.classList.toggle('open', !isOpen);
+  }
+
+  // マルチセレクト：チェックでラベル更新
+  function updateMultiselectLabel(cb) {
+    var wrap = cb.closest('.multiselect');
+    var labelEl = wrap.querySelector('.multiselect-label');
+    var checked = wrap.querySelectorAll('input[type="checkbox"]:checked');
+    if (checked.length === 0) {
+      labelEl.innerHTML = '選択してください';
+      labelEl.classList.remove('has-value');
+    } else {
+      var names = Array.from(checked).map(function(c) {
+        return c.parentElement.textContent.trim();
+      });
+      labelEl.innerHTML = '<span class="multiselect-count">' + checked.length + '</span>' + names.join('、');
+      labelEl.classList.add('has-value');
+    }
+  }
+
+  // 外側クリックで閉じる
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.multiselect.open').forEach(function(ms) {
+      if (!ms.contains(e.target)) {
+        ms.querySelector('.multiselect-options').style.display = 'none';
+        ms.classList.remove('open');
+      }
+    });
+  });
 </script>
 </body>
 </html>

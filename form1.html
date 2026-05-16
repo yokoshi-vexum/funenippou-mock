@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>① 乗船前｜船日報</title>
+<title>乗船前（船長記入）｜船日報</title>
 <link rel="stylesheet" href="common.css">
 </head>
 <body>
 <div class="mock-badge">MOCK</div>
 <div class="app">
   <header>
-    <h1>① 乗船前チェック</h1>
-    <div class="sub">船長記入・第十八あみ達丸</div>
+    <h1>乗船前（船長記入）</h1>
+    <div class="sub">第十八あみ達丸</div>
   </header>
 
   <div class="content">
@@ -37,16 +37,17 @@
     </div>
 
     <div class="field">
-      <label>乗船区分<span class="required">必須</span></label>
+      <label>乗船区分<span class="required">必須</span><span class="prefilled-tag" id="inheritedTag" style="display:none;">アルバイト記入から自動入力</span></label>
       <div class="option-grid">
         <label class="option"><input type="radio" name="boarding" value="norai">👥 乗合</label>
         <label class="option"><input type="radio" name="boarding" value="kashikiri">🎌 貸切</label>
       </div>
+      <div class="hint" id="inheritedHint" style="display:none;">アルバイトが先に送信していたため、その値が表示されています（変更可）</div>
     </div>
 
     <div class="field" id="groupNameField" style="display: none;">
       <label>団体名<span class="required">必須</span></label>
-      <input type="text" placeholder="例：○○商事 様">
+      <input id="groupNameInput" type="text" placeholder="例：○○商事 様">
       <div class="hint">貸切時のみ記入</div>
     </div>
 
@@ -78,47 +79,102 @@
 
     <div class="field">
       <label>エンジン<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">良好</label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="engine" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="engine" value="ng">⚠ 異常あり</label>
+      </div>
+    </div>
+    <div class="field" id="engineNoteField" style="display: none;">
+      <label>エンジンの異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
     </div>
 
     <div class="field">
       <label>発電機<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">良好</label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="generator" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="generator" value="ng">⚠ 異常あり</label>
+      </div>
+    </div>
+    <div class="field" id="generatorNoteField" style="display: none;">
+      <label>発電機の異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
     </div>
 
     <div class="field">
       <label>カラオケ<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">特に異常なし</label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="karaoke" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="karaoke" value="ng">⚠ 異常あり</label>
+      </div>
+    </div>
+    <div class="field" id="karaokeNoteField" style="display: none;">
+      <label>カラオケの異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
     </div>
 
     <div class="field">
       <label>マイク<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">特に異常なし</label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="mic" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="mic" value="ng">⚠ 異常あり</label>
+      </div>
+    </div>
+    <div class="field" id="micNoteField" style="display: none;">
+      <label>マイクの異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
     </div>
 
     <div class="field">
       <label>冷蔵庫<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">電源が入っている</label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="fridge" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="fridge" value="ng">⚠ 異常あり</label>
+      </div>
       <div style="margin-top:8px;">
         <label style="font-size:13px;color:#998166;">温度（℃）<span class="required">必須</span></label>
         <input type="number" placeholder="例：4" style="margin-top:4px;">
       </div>
     </div>
-
-    <div class="field">
-      <label>冷水器<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">電源が入っていて冷えている</label>
+    <div class="field" id="fridgeNoteField" style="display: none;">
+      <label>冷蔵庫の異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
     </div>
 
     <div class="field">
-      <label>食洗機洗剤<span class="required">必須</span></label>
-      <label class="option"><input type="checkbox">確認すみ</label>
+      <label>冷水器<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="waterCooler" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="waterCooler" value="ng">⚠ 異常あり</label>
+      </div>
+    </div>
+    <div class="field" id="waterCoolerNoteField" style="display: none;">
+      <label>冷水器の異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
+    </div>
+
+    <div class="field">
+      <label>食洗機<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="dishwasher" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="dishwasher" value="ng">⚠ 異常あり</label>
+      </div>
+    </div>
+    <div class="field" id="dishwasherNoteField" style="display: none;">
+      <label>食洗機の異常内容<span class="required">必須</span></label>
+      <input type="text" placeholder="異常の内容を記入">
     </div>
 
     <div class="field">
       <label>食器・グラス汚れ<span class="required">必須</span></label>
-      <input type="text" placeholder="汚れがなければ「なし」と入力">
-      <div class="hint">汚れていた場合は箇所を記入</div>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="dish" value="ok">✓ 良好</label>
+        <label class="option"><input type="radio" name="dish" value="ng">⚠ 汚れあり</label>
+      </div>
+    </div>
+    <div class="field" id="dishNoteField" style="display: none;">
+      <label>汚れの内容<span class="required">必須</span></label>
+      <input type="text" placeholder="どこに汚れがあったか記入">
     </div>
 
     <div class="field">
@@ -129,31 +185,11 @@
       </div>
     </div>
 
-    <div class="section-title">当日のメンバー</div>
-
-    <div class="field">
-      <label>社員（チェック）<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="checkbox">山田 太郎</label>
-        <label class="option"><input type="checkbox">鈴木 一郎</label>
-        <label class="option"><input type="checkbox">佐藤 健</label>
-        <label class="option"><input type="checkbox">田中 信</label>
-      </div>
-      <div class="hint">マスタから自動表示・複数選択可</div>
-    </div>
-
-    <div class="field">
-      <label>アルバイト（自由記入）</label>
-      <textarea placeholder="例：&#10;田中 花子&#10;伊藤 美咲"></textarea>
-      <div class="hint">アルバイトがいない日は空欄でOK</div>
-    </div>
-
-    <div class="field">
-      <label>体調<span class="required">必須</span></label>
-      <div class="option-grid">
-        <label class="option"><input type="radio" name="cond">全員 良好</label>
-        <label class="option"><input type="radio" name="cond">不調者あり</label>
-      </div>
+    <div class="toggle-mock">
+      <strong>モック表示切替：</strong>
+      <a href="?inherited=none">船長が先（空欄）</a> ／
+      <a href="?inherited=norai">アルバイトが先・乗合</a> ／
+      <a href="?inherited=kashikiri">アルバイトが先・貸切</a>
     </div>
 
   </div>
@@ -164,17 +200,51 @@
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var radios = document.querySelectorAll('input[name="boarding"]');
-    var field = document.getElementById('groupNameField');
-    function update() {
-      var checked = document.querySelector('input[name="boarding"]:checked');
-      field.style.display = (checked && checked.value === 'kashikiri') ? 'block' : 'none';
+    var params = new URLSearchParams(location.search);
+    var inherited = params.get('inherited') || 'none'; // none / norai / kashikiri
+
+    var boardingRadios = document.querySelectorAll('input[name="boarding"]');
+    var groupField = document.getElementById('groupNameField');
+    var groupInput = document.getElementById('groupNameInput');
+    var inheritedTag = document.getElementById('inheritedTag');
+    var inheritedHint = document.getElementById('inheritedHint');
+
+    // アルバイトが先に送信していた場合は引き継ぎ
+    if (inherited === 'norai' || inherited === 'kashikiri') {
+      var preselect = document.querySelector('input[name="boarding"][value="' + inherited + '"]');
+      if (preselect) preselect.checked = true;
+      if (inherited === 'kashikiri') {
+        groupInput.value = '○○商事 様';
+      }
+      inheritedTag.style.display = '';
+      inheritedHint.style.display = '';
     }
-    radios.forEach(function(r) {
-      r.addEventListener('change', update);
-      r.addEventListener('click', update);
+
+    function updateGroup() {
+      var c = document.querySelector('input[name="boarding"]:checked');
+      groupField.style.display = (c && c.value === 'kashikiri') ? 'block' : 'none';
+    }
+    boardingRadios.forEach(function(r) {
+      r.addEventListener('change', updateGroup);
+      r.addEventListener('click', updateGroup);
     });
-    update();
+    updateGroup();
+
+    // 船チェック項目 → 異常／汚れあり時の備考表示
+    ['engine','generator','karaoke','mic','fridge','waterCooler','dishwasher','dish'].forEach(function(name) {
+      var radios = document.querySelectorAll('input[name="' + name + '"]');
+      var field = document.getElementById(name + 'NoteField');
+      if (!field) return;
+      function update() {
+        var c = document.querySelector('input[name="' + name + '"]:checked');
+        field.style.display = (c && c.value === 'ng') ? 'block' : 'none';
+      }
+      radios.forEach(function(r) {
+        r.addEventListener('change', update);
+        r.addEventListener('click', update);
+      });
+      update();
+    });
   });
 </script>
 </body>

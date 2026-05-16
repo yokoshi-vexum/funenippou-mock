@@ -39,15 +39,15 @@
   }
   .voyage-status {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     margin-bottom: 10px;
   }
   .status-pill {
     flex: 1;
     text-align: center;
-    padding: 8px 4px;
+    padding: 8px 2px;
     border-radius: 10px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     border: 1px solid #ede2cc;
     background: #faf3e2;
@@ -60,7 +60,7 @@
   }
   .status-pill .num {
     display: block;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 2px;
   }
   .voyage-action {
@@ -100,11 +100,11 @@
     color: #4a3a2c;
     font-family: inherit;
   }
-  .empty {
-    text-align: center;
+  .pill-legend {
+    font-size: 10px;
     color: #998166;
-    font-size: 13px;
-    padding: 32px 0;
+    margin-bottom: 8px;
+    padding: 0 4px;
   }
 </style>
 </head>
@@ -145,16 +145,21 @@
       </select>
     </div>
 
+    <div class="pill-legend">
+      ステータス：①船長・前 ②アルバ・前 ③アルバ・中 ④船長・後
+    </div>
+
     <div class="voyage-card">
       <div class="voyage-head">
         <div class="voyage-date">2026/5/16（金）</div>
         <span class="voyage-tag">🌙 夜</span>
       </div>
-      <div class="voyage-group">○○商事 様</div>
+      <div class="voyage-group">○○商事 様（貸切）</div>
       <div class="voyage-status">
-        <div class="status-pill done"><span class="num">①</span>乗船前</div>
-        <div class="status-pill"><span class="num">②</span>乗船中</div>
-        <div class="status-pill"><span class="num">③</span>乗船後</div>
+        <div class="status-pill done"><span class="num">①</span>船前</div>
+        <div class="status-pill done"><span class="num">②</span>ア前</div>
+        <div class="status-pill"><span class="num">③</span>中</div>
+        <div class="status-pill"><span class="num">④</span>後</div>
       </div>
       <div class="voyage-action">
         <a href="confirm.html?state=editable" class="action-edit">編集する</a>
@@ -166,11 +171,12 @@
         <div class="voyage-date">2026/5/16（金）</div>
         <span class="voyage-tag">☀️ 昼</span>
       </div>
-      <div class="voyage-group">△△会</div>
+      <div class="voyage-group">△△会（乗合）</div>
       <div class="voyage-status">
-        <div class="status-pill done"><span class="num">①</span>乗船前</div>
-        <div class="status-pill done"><span class="num">②</span>乗船中</div>
-        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+        <div class="status-pill done"><span class="num">①</span>船前</div>
+        <div class="status-pill done"><span class="num">②</span>ア前</div>
+        <div class="status-pill done"><span class="num">③</span>中</div>
+        <div class="status-pill done"><span class="num">④</span>後</div>
       </div>
       <div class="voyage-action">
         <a href="confirm.html?state=editable" class="action-edit">編集する</a>
@@ -182,11 +188,12 @@
         <div class="voyage-date">2026/5/15（木）</div>
         <span class="voyage-tag">🌙 夜</span>
       </div>
-      <div class="voyage-group">□□グループ 様</div>
+      <div class="voyage-group">□□グループ 様（貸切）</div>
       <div class="voyage-status">
-        <div class="status-pill done"><span class="num">①</span>乗船前</div>
-        <div class="status-pill done"><span class="num">②</span>乗船中</div>
-        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+        <div class="status-pill done"><span class="num">①</span>船前</div>
+        <div class="status-pill done"><span class="num">②</span>ア前</div>
+        <div class="status-pill done"><span class="num">③</span>中</div>
+        <div class="status-pill done"><span class="num">④</span>後</div>
       </div>
       <div class="voyage-action">
         <a href="#" class="action-disabled">編集期限切れ</a>
@@ -198,11 +205,12 @@
         <div class="voyage-date">2026/5/14（水）</div>
         <span class="voyage-tag">🌙 夜</span>
       </div>
-      <div class="voyage-group">★★旅行会</div>
+      <div class="voyage-group">★★旅行会（貸切）</div>
       <div class="voyage-status">
-        <div class="status-pill done"><span class="num">①</span>乗船前</div>
-        <div class="status-pill done"><span class="num">②</span>乗船中</div>
-        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+        <div class="status-pill done"><span class="num">①</span>船前</div>
+        <div class="status-pill done"><span class="num">②</span>ア前</div>
+        <div class="status-pill done"><span class="num">③</span>中</div>
+        <div class="status-pill done"><span class="num">④</span>後</div>
       </div>
       <div class="voyage-action">
         <a href="#" class="action-disabled">編集期限切れ</a>
@@ -214,11 +222,12 @@
         <div class="voyage-date">2026/5/13（火）</div>
         <span class="voyage-tag">☀️ 昼</span>
       </div>
-      <div class="voyage-group">企業様 ご接待</div>
+      <div class="voyage-group">企業様 ご接待（貸切）</div>
       <div class="voyage-status">
-        <div class="status-pill done"><span class="num">①</span>乗船前</div>
-        <div class="status-pill done"><span class="num">②</span>乗船中</div>
-        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+        <div class="status-pill done"><span class="num">①</span>船前</div>
+        <div class="status-pill done"><span class="num">②</span>ア前</div>
+        <div class="status-pill done"><span class="num">③</span>中</div>
+        <div class="status-pill done"><span class="num">④</span>後</div>
       </div>
       <div class="voyage-action">
         <a href="#" class="action-disabled">編集期限切れ</a>

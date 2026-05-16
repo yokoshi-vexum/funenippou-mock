@@ -281,3 +281,63 @@ header .sub {
   font-weight: 600;
 }
 .toggle-mock a:active { opacity: 0.7; }
+
+/* ── マルチセレクト（プルダウン＋複数選択） ─────────────────── */
+.multiselect {
+  position: relative;
+}
+.multiselect-button {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e2d4b8;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fffefa;
+  color: #4a3a2c;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.4;
+}
+.multiselect-button:active { background: #faf3e2; }
+.multiselect-label {
+  color: #998166;
+  flex: 1;
+  margin-right: 8px;
+}
+.multiselect-label.has-value {
+  color: #4a3a2c;
+}
+.multiselect-arrow {
+  font-size: 11px;
+  color: #998166;
+  transition: transform 0.2s;
+}
+.multiselect.open .multiselect-arrow {
+  transform: rotate(180deg);
+}
+.multiselect-options {
+  margin-top: 6px;
+  border: 1px solid #e2d4b8;
+  border-radius: 10px;
+  padding: 8px;
+  background: #fffefa;
+  max-height: 280px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.multiselect-count {
+  display: inline-block;
+  background: #c9a987;
+  color: #fffbf3;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 6px;
+}

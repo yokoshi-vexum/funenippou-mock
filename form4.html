@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>乗船後（船長記入）｜船日報</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>乗船後（船長記入）</h1>
+    <div class="sub">第十八あみ達丸</div>
+  </header>
+
+  <div class="content">
+
+    <div class="section-title">基本情報（自動引き継ぎ）</div>
+
+    <div class="field">
+      <label>🚢 船名<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="第十八あみ達丸" readonly class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>乗船区分<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input id="boardingDisplay" type="text" value="🎌 貸切" readonly class="prefilled">
+    </div>
+
+    <div class="field" id="groupNameRow">
+      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input id="groupNameDisplay" type="text" value="○○商事 様" readonly class="prefilled">
+      <div class="hint">貸切時のみ表示</div>
+    </div>
+
+    <div class="section-title">下船時の確認</div>
+
+    <div class="field">
+      <label>ロープ<span class="required">必須</span></label>
+      <label class="option"><input type="checkbox">確認すみ</label>
+    </div>
+
+    <div class="field">
+      <label>船の戸締り<span class="required">必須</span></label>
+      <label class="option"><input type="checkbox">確認すみ</label>
+    </div>
+
+    <div class="section-title">支払い</div>
+
+    <div class="field">
+      <label>支払方法<span class="required">必須</span></label>
+      <select id="paymentMethod">
+        <option value="">選択してください</option>
+        <option value="cash">現金</option>
+        <option value="card">カード</option>
+        <option value="transfer">振込</option>
+        <option value="later">後日請求</option>
+        <option value="none">支払いなし</option>
+      </select>
+      <div class="hint">現金以外は事務所への手渡し不要のため、自動で次の項目は省略されます</div>
+    </div>
+
+    <div class="field" id="paymentDoneField" style="display: none;">
+      <label>事務所に渡し済<span class="required">必須</span></label>
+      <label class="option"><input type="checkbox">事務所に渡しすみ</label>
+      <div class="hint">現金で受け取った場合のみ表示・必ずチェック</div>
+    </div>
+
+    <div class="section-title">コメント</div>
+
+    <div class="field">
+      <label>コメント欄（任意）</label>
+      <textarea placeholder="気になった点があれば自由に記入"></textarea>
+    </div>
+
+    <div class="toggle-mock">
+      <strong>モック表示切替：</strong>
+      <a href="?type=norai">乗合</a> ／
+      <a href="?type=kashikiri">貸切</a>
+    </div>
+
+  </div>
+
+  <div class="fixed-bottom">
+    <a href="confirm.html?from=4" class="btn-primary">送信する</a>
+  </div>
+</div>
+<script>
+  (function(){
+    var params = new URLSearchParams(location.search);
+    var type = params.get('type') || 'kashikiri';
+    var boardingEl = document.getElementById('boardingDisplay');
+    var groupRow = document.getElementById('groupNameRow');
+    if (type === 'norai') {
+      boardingEl.value = '👥 乗合';
+      groupRow.style.display = 'none';
+    } else {
+      boardingEl.value = '🎌 貸切';
+      groupRow.style.display = '';
+    }
+  })();
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var paySelect = document.getElementById('paymentMethod');
+    var doneField = document.getElementById('paymentDoneField');
+    function update() {
+      // 「現金」を選んだ時だけ「事務所に渡し済」を表示
+      doneField.style.display = (paySelect.value === 'cash') ? 'block' : 'none';
+    }
+    paySelect.addEventListener('change', update);
+    update();
+  });
+</script>
+</body>
+</html>

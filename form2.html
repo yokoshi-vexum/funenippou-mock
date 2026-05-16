@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>② 乗船中｜船日報</title>
+<title>乗船前（アルバイト記入）｜船日報</title>
 <link rel="stylesheet" href="common.css">
 </head>
 <body>
 <div class="mock-badge">MOCK</div>
 <div class="app">
   <header>
-    <h1>② 乗船中の記録</h1>
-    <div class="sub">アルバイト代表記入</div>
+    <h1>乗船前（アルバイト記入）</h1>
+    <div class="sub">第十八あみ達丸</div>
   </header>
 
   <div class="content">
@@ -24,135 +24,65 @@
     </div>
 
     <div class="field">
-      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
+      <label>日付・昼夜<span class="prefilled-tag">①から引き継ぎ</span></label>
       <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
     </div>
 
     <div class="field">
-      <label>乗船区分<span class="prefilled-tag">①から引き継ぎ</span></label>
-      <input id="boardingDisplay" type="text" value="🎌 貸切" readonly class="prefilled">
-    </div>
-
-    <div class="field" id="groupNameRow">
-      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
-      <input id="groupNameDisplay" type="text" value="○○商事 様" readonly class="prefilled">
-      <div class="hint">貸切時のみ表示</div>
-    </div>
-
-    <div class="section-title">記入者</div>
-
-    <div class="field">
-      <label>区分<span class="required">必須</span></label>
+      <label>乗船区分<span class="required">必須</span><span class="prefilled-tag" id="inheritedTag" style="display:none;">船長記入から自動入力</span></label>
       <div class="option-grid">
-        <label class="option"><input type="radio" name="kw">社員</label>
-        <label class="option"><input type="radio" name="kw">アルバイト</label>
+        <label class="option"><input type="radio" name="boarding" value="norai">👥 乗合</label>
+        <label class="option"><input type="radio" name="boarding" value="kashikiri">🎌 貸切</label>
       </div>
+      <div class="hint" id="inheritedHint" style="display:none;">船長が先に送信していたため、その値が表示されています（変更可）</div>
     </div>
 
-    <div class="field">
-      <label>名前（アルバイト）<span class="required">必須</span></label>
-      <input type="text" placeholder="例：田中 花子">
-      <div class="hint">区分が「社員」の場合はプルダウンに切り替わる</div>
+    <div class="field" id="groupNameField" style="display: none;">
+      <label>団体名<span class="required">必須</span></label>
+      <input id="groupNameInput" type="text" placeholder="例：○○商事 様">
+      <div class="hint">貸切時のみ記入</div>
     </div>
 
-    <div class="section-title">お客様の様子</div>
+    <div class="section-title">当日のメンバー</div>
 
     <div class="field">
-      <label>反応<span class="required">必須</span></label>
+      <label>社員（チェック）<span class="required">必須</span></label>
       <div class="option-list">
-        <label class="option"><input type="radio" name="mood">とても喜んでいた</label>
-        <label class="option"><input type="radio" name="mood">まあまあ喜んでいた</label>
-        <label class="option"><input type="radio" name="mood">あまり喜んでなかった</label>
+        <label class="option"><input type="checkbox">山田 太郎</label>
+        <label class="option"><input type="checkbox">鈴木 一郎</label>
+        <label class="option"><input type="checkbox">佐藤 健</label>
+        <label class="option"><input type="checkbox">田中 信</label>
+      </div>
+      <div class="hint">マスタから自動表示・複数選択可</div>
+    </div>
+
+    <div class="field">
+      <label>アルバイト（自由記入）</label>
+      <textarea placeholder="例：&#10;田中 花子&#10;伊藤 美咲"></textarea>
+      <div class="hint">アルバイトがいない日は空欄でOK</div>
+    </div>
+
+    <div class="section-title">体調確認</div>
+
+    <div class="field">
+      <label>体調<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="cond" value="ok">全員 良好</label>
+        <label class="option"><input type="radio" name="cond" value="ng">不調者あり</label>
       </div>
     </div>
 
-    <div class="field">
-      <label>理由<span class="required">必須</span></label>
-      <textarea placeholder="何を特に喜んでいたか、もしくは喜んでいなかったか"></textarea>
-    </div>
-
-    <div class="section-title">食事</div>
-
-    <div class="field">
-      <label>食べた量<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="radio" name="ev">よく食べた</label>
-        <label class="option"><input type="radio" name="ev">ふつう</label>
-        <label class="option"><input type="radio" name="ev">あまり食べなかった</label>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>食べた種類（複数選択）<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="checkbox">刺身盛り合わせ</label>
-        <label class="option"><input type="checkbox">天ぷら</label>
-        <label class="option"><input type="checkbox">唐揚げ</label>
-        <label class="option"><input type="checkbox">茶碗蒸し</label>
-        <label class="option"><input type="checkbox">焼き魚</label>
-        <label class="option"><input type="checkbox">特になし</label>
-      </div>
-      <div class="hint">マスタ管理で項目を追加・編集できます</div>
-    </div>
-
-    <div class="field">
-      <label>残った種類（複数選択）<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="checkbox">刺身盛り合わせ</label>
-        <label class="option"><input type="checkbox">天ぷら</label>
-        <label class="option"><input type="checkbox">唐揚げ</label>
-        <label class="option"><input type="checkbox">茶碗蒸し</label>
-        <label class="option"><input type="checkbox">焼き魚</label>
-        <label class="option"><input type="checkbox">特になし</label>
-      </div>
-    </div>
-
-    <div class="section-title">ドリンク</div>
-
-    <div class="field">
-      <label>飲んだ量<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="radio" name="dv">よく飲んだ</label>
-        <label class="option"><input type="radio" name="dv">普通</label>
-        <label class="option"><input type="radio" name="dv">あまり飲まなかった</label>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>飲んだ種類（複数選択）<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="checkbox">ビール（生）</label>
-        <label class="option"><input type="checkbox">日本酒</label>
-        <label class="option"><input type="checkbox">焼酎</label>
-        <label class="option"><input type="checkbox">ハイボール</label>
-        <label class="option"><input type="checkbox">ソフトドリンク</label>
-        <label class="option"><input type="checkbox">特になし</label>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>飲まなかった種類（複数選択）<span class="required">必須</span></label>
-      <div class="option-list">
-        <label class="option"><input type="checkbox">ビール（生）</label>
-        <label class="option"><input type="checkbox">日本酒</label>
-        <label class="option"><input type="checkbox">焼酎</label>
-        <label class="option"><input type="checkbox">ハイボール</label>
-        <label class="option"><input type="checkbox">ソフトドリンク</label>
-        <label class="option"><input type="checkbox">特になし</label>
-      </div>
-    </div>
-
-    <div class="section-title">備考</div>
-
-    <div class="field">
-      <label>備考（任意）</label>
-      <textarea placeholder="自由記入"></textarea>
+    <div class="field" id="symptomField" style="display: none;">
+      <label>不調者の名前と症状<span class="required">必須</span></label>
+      <textarea placeholder="例：&#10;山田 太郎：軽い頭痛&#10;鈴木 一郎：咳・鼻水"></textarea>
+      <div class="hint">1行に1名・名前と症状を記入</div>
     </div>
 
     <div class="toggle-mock">
       <strong>モック表示切替：</strong>
-      <a href="?type=norai">乗合</a> ／
-      <a href="?type=kashikiri">貸切</a>
+      <a href="?inherited=none">アルバイトが先（空欄）</a> ／
+      <a href="?inherited=norai">船長が先・乗合</a> ／
+      <a href="?inherited=kashikiri">船長が先・貸切</a>
     </div>
 
   </div>
@@ -162,19 +92,50 @@
   </div>
 </div>
 <script>
-  (function(){
+  document.addEventListener('DOMContentLoaded', function() {
     var params = new URLSearchParams(location.search);
-    var type = params.get('type') || 'kashikiri';
-    var boardingEl = document.getElementById('boardingDisplay');
-    var groupRow = document.getElementById('groupNameRow');
-    if (type === 'norai') {
-      boardingEl.value = '👥 乗合';
-      groupRow.style.display = 'none';
-    } else {
-      boardingEl.value = '🎌 貸切';
-      groupRow.style.display = '';
+    var inherited = params.get('inherited') || 'none'; // none / norai / kashikiri
+
+    var boardingRadios = document.querySelectorAll('input[name="boarding"]');
+    var groupField = document.getElementById('groupNameField');
+    var groupInput = document.getElementById('groupNameInput');
+    var inheritedTag = document.getElementById('inheritedTag');
+    var inheritedHint = document.getElementById('inheritedHint');
+
+    // 引き継ぎがあれば初期値を入れる
+    if (inherited === 'norai' || inherited === 'kashikiri') {
+      var preselect = document.querySelector('input[name="boarding"][value="' + inherited + '"]');
+      if (preselect) preselect.checked = true;
+      if (inherited === 'kashikiri') {
+        groupInput.value = '○○商事 様';
+      }
+      inheritedTag.style.display = '';
+      inheritedHint.style.display = '';
     }
-  })();
+
+    function updateBoarding() {
+      var c = document.querySelector('input[name="boarding"]:checked');
+      groupField.style.display = (c && c.value === 'kashikiri') ? 'block' : 'none';
+    }
+    boardingRadios.forEach(function(r) {
+      r.addEventListener('change', updateBoarding);
+      r.addEventListener('click', updateBoarding);
+    });
+    updateBoarding();
+
+    // 体調 → 症状欄
+    var condRadios = document.querySelectorAll('input[name="cond"]');
+    var symptomField = document.getElementById('symptomField');
+    function updateCond() {
+      var c = document.querySelector('input[name="cond"]:checked');
+      symptomField.style.display = (c && c.value === 'ng') ? 'block' : 'none';
+    }
+    condRadios.forEach(function(r) {
+      r.addEventListener('change', updateCond);
+      r.addEventListener('click', updateCond);
+    });
+    updateCond();
+  });
 </script>
 </body>
 </html>
