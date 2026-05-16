@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>③ 乗船後｜船日報</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>③ 乗船後チェック</h1>
+    <div class="sub">船長記入</div>
+  </header>
+
+  <div class="content">
+
+    <div class="section-title">基本情報（自動引き継ぎ）</div>
+
+    <div class="field">
+      <label>🚢 船名<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="第十八あみ達丸" readonly class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input type="text" value="○○商事 様" readonly class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
+    </div>
+
+    <div class="section-title">下船時の確認</div>
+
+    <div class="field">
+      <label>ロープ</label>
+      <label class="option"><input type="checkbox">確認すみ</label>
+    </div>
+
+    <div class="field">
+      <label>船の戸締り</label>
+      <label class="option"><input type="checkbox">確認すみ</label>
+    </div>
+
+    <div class="section-title">支払い</div>
+
+    <div class="field">
+      <label>支払い</label>
+      <label class="option"><input type="checkbox">事務所に渡しすみ</label>
+    </div>
+
+    <div class="field">
+      <label>支払方法<span class="required">必須</span></label>
+      <select>
+        <option value="">選択してください</option>
+        <option>現金</option>
+        <option>カード</option>
+        <option>振込</option>
+        <option>後日請求</option>
+      </select>
+      <div class="hint">マスタ管理で項目を追加できます</div>
+    </div>
+
+    <div class="section-title">コメント</div>
+
+    <div class="field">
+      <label>コメント欄（任意）</label>
+      <textarea placeholder="気になった点があれば自由に記入"></textarea>
+    </div>
+
+  </div>
+
+  <div class="fixed-bottom">
+    <a href="confirm.html?from=3" class="btn-primary">送信する</a>
+  </div>
+</div>
+</body>
+</html>

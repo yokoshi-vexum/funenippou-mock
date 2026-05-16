@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>① 乗船前｜船日報</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>① 乗船前チェック</h1>
+    <div class="sub">船長記入・第十八あみ達丸</div>
+  </header>
+
+  <div class="content">
+
+    <div class="section-title">基本情報</div>
+
+    <div class="field">
+      <label>🚢 船名<span class="prefilled-tag">QRから自動</span></label>
+      <input type="text" value="第十八あみ達丸" readonly class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>📅 日付<span class="prefilled-tag">自動取得</span></label>
+      <input type="date" value="2026-05-16" class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>団体名<span class="required">必須</span></label>
+      <input type="text" placeholder="例：○○商事 様">
+    </div>
+
+    <div class="field">
+      <label>船長名<span class="required">必須</span></label>
+      <select>
+        <option value="">選択してください</option>
+        <option>山田 太郎</option>
+        <option>鈴木 一郎</option>
+        <option>佐藤 健</option>
+        <option>田中 信</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>昼／夜<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="dn">☀️ 昼</label>
+        <label class="option"><input type="radio" name="dn">🌙 夜</label>
+      </div>
+    </div>
+
+    <div class="section-title">船のチェック</div>
+
+    <div class="field">
+      <label>船の水</label>
+      <label class="option"><input type="checkbox">十分である</label>
+    </div>
+
+    <div class="field">
+      <label>燃料<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="fuel">満タン</label>
+        <label class="option"><input type="radio" name="fuel">半分</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>エンジン</label>
+      <label class="option"><input type="checkbox">良好</label>
+    </div>
+
+    <div class="field">
+      <label>発電機</label>
+      <label class="option"><input type="checkbox">良好</label>
+    </div>
+
+    <div class="field">
+      <label>カラオケ</label>
+      <label class="option"><input type="checkbox">特に異常なし</label>
+    </div>
+
+    <div class="field">
+      <label>マイク</label>
+      <label class="option"><input type="checkbox">特に異常なし</label>
+    </div>
+
+    <div class="field">
+      <label>冷蔵庫</label>
+      <label class="option"><input type="checkbox">電源が入っている</label>
+      <div style="margin-top:8px;">
+        <label style="font-size:13px;color:#6b7280;">温度（℃）</label>
+        <input type="number" placeholder="例：4" style="margin-top:4px;">
+      </div>
+    </div>
+
+    <div class="field">
+      <label>冷水器</label>
+      <label class="option"><input type="checkbox">電源が入っていて冷えている</label>
+    </div>
+
+    <div class="field">
+      <label>食洗機洗剤</label>
+      <label class="option"><input type="checkbox">確認すみ</label>
+    </div>
+
+    <div class="field">
+      <label>食器・グラス汚れ</label>
+      <input type="text" placeholder="汚れていた箇所（あれば記入）">
+      <div class="hint">任意：洗浄済みの場合に記入</div>
+    </div>
+
+    <div class="field">
+      <label>ちょうちんの電球</label>
+      <div class="option-list">
+        <label class="option"><input type="radio" name="lt">球切れなし</label>
+        <label class="option"><input type="radio" name="lt">一部球切れの為、交換すみ</label>
+      </div>
+    </div>
+
+    <div class="section-title">当日のメンバー</div>
+
+    <div class="field">
+      <label>社員（チェック）</label>
+      <div class="option-list">
+        <label class="option"><input type="checkbox">山田 太郎</label>
+        <label class="option"><input type="checkbox">鈴木 一郎</label>
+        <label class="option"><input type="checkbox">佐藤 健</label>
+        <label class="option"><input type="checkbox">田中 信</label>
+      </div>
+      <div class="hint">マスタから自動表示・複数選択可</div>
+    </div>
+
+    <div class="field">
+      <label>アルバイト（自由記入）</label>
+      <textarea placeholder="例：&#10;田中 花子&#10;伊藤 美咲"></textarea>
+      <div class="hint">1行に1名・複数可</div>
+    </div>
+
+    <div class="field">
+      <label>体調<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="cond">全員 良好</label>
+        <label class="option"><input type="radio" name="cond">不調者あり</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="fixed-bottom">
+    <a href="confirm.html?from=1" class="btn-primary">送信する</a>
+  </div>
+</div>
+</body>
+</html>

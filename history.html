@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>送信履歴｜船日報</title>
+<link rel="stylesheet" href="common.css">
+<style>
+  .voyage-card {
+    background: #fffbf3;
+    border: 1px solid #ede2cc;
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .voyage-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .voyage-date {
+    font-size: 15px;
+    font-weight: 700;
+    color: #5a4a3a;
+  }
+  .voyage-tag {
+    font-size: 11px;
+    background: #f5ecd6;
+    color: #8b6f4e;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+  .voyage-group {
+    font-size: 13px;
+    color: #8a7866;
+    margin-bottom: 10px;
+  }
+  .voyage-status {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .status-pill {
+    flex: 1;
+    text-align: center;
+    padding: 8px 4px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #ede2cc;
+    background: #faf3e2;
+    color: #998166;
+  }
+  .status-pill.done {
+    background: #e3eed1;
+    border-color: #c6d6a3;
+    color: #5a7a3a;
+  }
+  .status-pill .num {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  .voyage-action {
+    display: flex;
+    gap: 8px;
+  }
+  .voyage-action a {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .action-edit {
+    background: #b08660;
+    color: #fffbf3;
+  }
+  .action-disabled {
+    background: #f0e5d0;
+    color: #b0a088;
+    pointer-events: none;
+  }
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .filter-row select {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #e2d4b8;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fffefa;
+    color: #4a3a2c;
+    font-family: inherit;
+  }
+  .empty {
+    text-align: center;
+    color: #998166;
+    font-size: 13px;
+    padding: 32px 0;
+  }
+</style>
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>送信履歴</h1>
+    <div class="sub">第十八あみ達丸</div>
+  </header>
+
+  <div class="content">
+
+    <div class="filter-row">
+      <select>
+        <option>直近1週間</option>
+        <option>直近1ヶ月</option>
+        <option>すべて</option>
+      </select>
+      <select>
+        <option>すべて</option>
+        <option>昼</option>
+        <option>夜</option>
+      </select>
+    </div>
+
+    <div class="voyage-card">
+      <div class="voyage-head">
+        <div class="voyage-date">2026/5/16（金）</div>
+        <span class="voyage-tag">🌙 夜</span>
+      </div>
+      <div class="voyage-group">○○商事 様</div>
+      <div class="voyage-status">
+        <div class="status-pill done"><span class="num">①</span>乗船前</div>
+        <div class="status-pill"><span class="num">②</span>乗船中</div>
+        <div class="status-pill"><span class="num">③</span>乗船後</div>
+      </div>
+      <div class="voyage-action">
+        <a href="confirm.html?state=editable" class="action-edit">編集する</a>
+      </div>
+    </div>
+
+    <div class="voyage-card">
+      <div class="voyage-head">
+        <div class="voyage-date">2026/5/16（金）</div>
+        <span class="voyage-tag">☀️ 昼</span>
+      </div>
+      <div class="voyage-group">△△会</div>
+      <div class="voyage-status">
+        <div class="status-pill done"><span class="num">①</span>乗船前</div>
+        <div class="status-pill done"><span class="num">②</span>乗船中</div>
+        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+      </div>
+      <div class="voyage-action">
+        <a href="confirm.html?state=editable" class="action-edit">編集する</a>
+      </div>
+    </div>
+
+    <div class="voyage-card">
+      <div class="voyage-head">
+        <div class="voyage-date">2026/5/15（木）</div>
+        <span class="voyage-tag">🌙 夜</span>
+      </div>
+      <div class="voyage-group">□□グループ 様</div>
+      <div class="voyage-status">
+        <div class="status-pill done"><span class="num">①</span>乗船前</div>
+        <div class="status-pill done"><span class="num">②</span>乗船中</div>
+        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+      </div>
+      <div class="voyage-action">
+        <a href="#" class="action-disabled">編集期限切れ</a>
+      </div>
+    </div>
+
+    <div class="voyage-card">
+      <div class="voyage-head">
+        <div class="voyage-date">2026/5/14（水）</div>
+        <span class="voyage-tag">🌙 夜</span>
+      </div>
+      <div class="voyage-group">★★旅行会</div>
+      <div class="voyage-status">
+        <div class="status-pill done"><span class="num">①</span>乗船前</div>
+        <div class="status-pill done"><span class="num">②</span>乗船中</div>
+        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+      </div>
+      <div class="voyage-action">
+        <a href="#" class="action-disabled">編集期限切れ</a>
+      </div>
+    </div>
+
+    <div class="voyage-card">
+      <div class="voyage-head">
+        <div class="voyage-date">2026/5/13（火）</div>
+        <span class="voyage-tag">☀️ 昼</span>
+      </div>
+      <div class="voyage-group">企業様 ご接待</div>
+      <div class="voyage-status">
+        <div class="status-pill done"><span class="num">①</span>乗船前</div>
+        <div class="status-pill done"><span class="num">②</span>乗船中</div>
+        <div class="status-pill done"><span class="num">③</span>乗船後</div>
+      </div>
+      <div class="voyage-action">
+        <a href="#" class="action-disabled">編集期限切れ</a>
+      </div>
+    </div>
+
+    <a href="selector.html" class="btn-secondary" style="margin-top: 24px;">← フォーム選択に戻る</a>
+
+    <div style="margin-top: 16px; text-align: center;">
+      <a href="index.html" style="color: #998166; font-size: 12px; text-decoration: none;">← モック一覧</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

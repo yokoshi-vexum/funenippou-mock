@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>送信完了｜船日報</title>
+<link rel="stylesheet" href="common.css">
+<style>
+  .complete-icon {
+    font-size: 56px;
+    text-align: center;
+    margin: 28px 0 12px;
+  }
+  .complete-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #6a4f30;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .complete-sub {
+    text-align: center;
+    font-size: 13px;
+    color: #8a7866;
+    margin-bottom: 28px;
+  }
+  .edit-section {
+    background: #faf3e2;
+    border: 1px solid #ede2cc;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .edit-section.expired {
+    background: #f5e8e3;
+    border-color: #e8c8b8;
+  }
+  .edit-section .icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  .edit-section .msg {
+    font-size: 14px;
+    color: #6a4f30;
+    margin-bottom: 14px;
+  }
+  .edit-section.expired .msg {
+    color: #8a4a3a;
+  }
+  .edit-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #b08660;
+    color: #fffbf3;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    box-shadow: 0 2px 6px rgba(140, 110, 70, 0.15);
+  }
+  .toggle-mock {
+    background: #fffbf3;
+    border: 1px dashed #d9c8ac;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-top: 24px;
+    font-size: 11px;
+    color: #998166;
+    text-align: center;
+  }
+  .toggle-mock a {
+    color: #b08660;
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>送信完了</h1>
+    <div class="sub">フォームを送信しました</div>
+  </header>
+
+  <div class="content">
+    <div class="complete-icon">🌿</div>
+    <div class="complete-title">ありがとうございました</div>
+    <div class="complete-sub">第十八あみ達丸 ・ 2026-05-16（夜）</div>
+
+    <div id="editArea"></div>
+
+    <a href="selector.html" class="btn-secondary" style="margin-top: 24px;">フォーム選択に戻る</a>
+
+    <div class="toggle-mock">
+      <strong>モック表示切替：</strong>
+      <a href="?state=editable">編集可能</a> ／
+      <a href="?state=expired">編集期限切れ</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const state = params.get('state') || 'editable';
+  const area = document.getElementById('editArea');
+
+  if (state === 'expired') {
+    area.innerHTML = `
+      <div class="edit-section expired">
+        <div class="icon">⏰</div>
+        <div class="msg">編集可能時間を過ぎています<br>修正が必要な場合は管理者にご連絡ください</div>
+      </div>`;
+  } else {
+    area.innerHTML = `
+      <div class="edit-section">
+        <div class="msg">入力内容を直したい場合は</div>
+        <a href="#" class="edit-link">編集画面はこちら</a>
+      </div>`;
+  }
+</script>
+</body>
+</html>

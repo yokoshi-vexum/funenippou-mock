@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>② 乗船中｜船日報</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>② 乗船中の記録</h1>
+    <div class="sub">アルバイト代表記入</div>
+  </header>
+
+  <div class="content">
+
+    <div class="section-title">基本情報（自動引き継ぎ）</div>
+
+    <div class="field">
+      <label>🚢 船名<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="第十八あみ達丸" readonly class="prefilled">
+    </div>
+
+    <div class="field">
+      <label>団体名<span class="prefilled-tag">①から引き継ぎ</span></label>
+      <input type="text" value="○○商事 様" class="prefilled">
+      <div class="hint">必要なら編集可</div>
+    </div>
+
+    <div class="field">
+      <label>日付・昼夜<span class="prefilled-tag">自動</span></label>
+      <input type="text" value="2026-05-16（夜）" readonly class="prefilled">
+    </div>
+
+    <div class="section-title">記入者</div>
+
+    <div class="field">
+      <label>区分<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="kw">社員</label>
+        <label class="option"><input type="radio" name="kw">アルバイト</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>名前（アルバイト）<span class="required">必須</span></label>
+      <input type="text" placeholder="例：田中 花子">
+      <div class="hint">区分が「社員」の場合はプルダウンに切り替わる</div>
+    </div>
+
+    <div class="section-title">乗船区分</div>
+
+    <div class="field">
+      <label>乗船区分<span class="required">必須</span></label>
+      <div class="option-grid">
+        <label class="option"><input type="radio" name="bt">乗合</label>
+        <label class="option"><input type="radio" name="bt">貸切</label>
+      </div>
+    </div>
+
+    <div class="section-title">お客様の様子</div>
+
+    <div class="field">
+      <label>反応<span class="required">必須</span></label>
+      <div class="option-list">
+        <label class="option"><input type="radio" name="mood">とても喜んでいた</label>
+        <label class="option"><input type="radio" name="mood">まあまあ喜んでいた</label>
+        <label class="option"><input type="radio" name="mood">あまり喜んでなかった</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>理由（任意）</label>
+      <textarea placeholder="何を特に喜んでいたか、もしくは喜んでいなかったか"></textarea>
+    </div>
+
+    <div class="section-title">食事</div>
+
+    <div class="field">
+      <label>食べた量<span class="required">必須</span></label>
+      <div class="option-list">
+        <label class="option"><input type="radio" name="ev">よく食べた</label>
+        <label class="option"><input type="radio" name="ev">ふつう</label>
+        <label class="option"><input type="radio" name="ev">あまり食べなかった</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>食べた種類（複数選択）</label>
+      <div class="option-list">
+        <label class="option"><input type="checkbox">刺身盛り合わせ</label>
+        <label class="option"><input type="checkbox">天ぷら</label>
+        <label class="option"><input type="checkbox">唐揚げ</label>
+        <label class="option"><input type="checkbox">茶碗蒸し</label>
+        <label class="option"><input type="checkbox">焼き魚</label>
+        <label class="option"><input type="checkbox">特になし</label>
+      </div>
+      <div class="hint">マスタ管理で項目を追加・編集できます</div>
+    </div>
+
+    <div class="field">
+      <label>残った種類（複数選択）</label>
+      <div class="option-list">
+        <label class="option"><input type="checkbox">刺身盛り合わせ</label>
+        <label class="option"><input type="checkbox">天ぷら</label>
+        <label class="option"><input type="checkbox">唐揚げ</label>
+        <label class="option"><input type="checkbox">茶碗蒸し</label>
+        <label class="option"><input type="checkbox">焼き魚</label>
+        <label class="option"><input type="checkbox">特になし</label>
+      </div>
+    </div>
+
+    <div class="section-title">ドリンク</div>
+
+    <div class="field">
+      <label>飲んだ量<span class="required">必須</span></label>
+      <div class="option-list">
+        <label class="option"><input type="radio" name="dv">よく飲んだ</label>
+        <label class="option"><input type="radio" name="dv">普通</label>
+        <label class="option"><input type="radio" name="dv">あまり飲まなかった</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>飲んだ種類（複数選択）</label>
+      <div class="option-list">
+        <label class="option"><input type="checkbox">ビール（生）</label>
+        <label class="option"><input type="checkbox">日本酒</label>
+        <label class="option"><input type="checkbox">焼酎</label>
+        <label class="option"><input type="checkbox">ハイボール</label>
+        <label class="option"><input type="checkbox">ソフトドリンク</label>
+        <label class="option"><input type="checkbox">特になし</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>飲まなかった種類（複数選択）</label>
+      <div class="option-list">
+        <label class="option"><input type="checkbox">ビール（生）</label>
+        <label class="option"><input type="checkbox">日本酒</label>
+        <label class="option"><input type="checkbox">焼酎</label>
+        <label class="option"><input type="checkbox">ハイボール</label>
+        <label class="option"><input type="checkbox">ソフトドリンク</label>
+        <label class="option"><input type="checkbox">特になし</label>
+      </div>
+    </div>
+
+    <div class="section-title">備考</div>
+
+    <div class="field">
+      <label>備考（任意）</label>
+      <textarea placeholder="自由記入"></textarea>
+    </div>
+
+  </div>
+
+  <div class="fixed-bottom">
+    <a href="confirm.html?from=2" class="btn-primary">送信する</a>
+  </div>
+</div>
+</body>
+</html>

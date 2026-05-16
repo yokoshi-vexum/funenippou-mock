@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>船日報 モック一覧</title>
+<link rel="stylesheet" href="common.css">
+<style>
+  .desc-block {
+    background: #fffbf3;
+    border: 1px solid #ede2cc;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 16px 22px;
+    font-size: 13px;
+    color: #5a4a3a;
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="app">
+  <header>
+    <h1>船日報 — 画面モック</h1>
+    <div class="sub">スマホ表示前提・実データなし</div>
+  </header>
+
+  <div class="desc-block">
+    QRコードを読み込むと <strong>selector.html</strong> が開きます。<br>
+    各カードから個別画面も直接見られます。
+  </div>
+
+  <div class="content">
+    <div class="section-title">QR読込後（入口）</div>
+
+    <a href="selector.html" class="form-card">
+      <div class="label">QR読込直後</div>
+      <h2>🚢 入口画面（フォーム選択）</h2>
+      <div class="desc">船名表示＋3フォームのボタン</div>
+    </a>
+
+    <div class="section-title">3つのフォーム</div>
+
+    <a href="form1.html" class="form-card">
+      <div class="label">FORM ①</div>
+      <h2>乗船前フォーム</h2>
+      <div class="desc">船長：船の各種チェック＋当日メンバー健康確認</div>
+      <span class="badge">船長</span>
+    </a>
+
+    <a href="form2.html" class="form-card">
+      <div class="label">FORM ②</div>
+      <h2>乗船中フォーム</h2>
+      <div class="desc">アルバイト代表：お客様の様子・食事・ドリンク記録</div>
+      <span class="badge">アルバイト</span>
+    </a>
+
+    <a href="form3.html" class="form-card">
+      <div class="label">FORM ③</div>
+      <h2>乗船後フォーム</h2>
+      <div class="desc">船長：ロープ・戸締り・支払</div>
+      <span class="badge">船長</span>
+    </a>
+
+    <div class="section-title">その他</div>
+
+    <a href="confirm.html" class="form-card">
+      <div class="label">送信完了</div>
+      <h2>送信完了画面</h2>
+      <div class="desc">編集画面リンク／編集期限切れ表示</div>
+    </a>
+
+    <a href="history.html" class="form-card">
+      <div class="label">履歴</div>
+      <h2>送信履歴</h2>
+      <div class="desc">過去の便と状態（①②③）の一覧</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
