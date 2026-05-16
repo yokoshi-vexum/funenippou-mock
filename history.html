@@ -118,16 +118,30 @@
 
   <div class="content">
 
+    <div style="background:#fffefa; border:1px solid #e2d4b8; border-radius:12px; padding:10px 12px; margin-bottom:12px;">
+      <div style="display:flex; align-items:center; gap:6px; font-size:13px; color:#5a4a3a;">
+        <span style="color:#998166;">📅</span>
+        <input type="date" value="2026-05-09" style="flex:1; border:none; background:transparent; font-family:inherit; font-size:14px; color:#4a3a2c;">
+        <span style="color:#998166;">〜</span>
+        <input type="date" value="2026-05-16" style="flex:1; border:none; background:transparent; font-family:inherit; font-size:14px; color:#4a3a2c;">
+      </div>
+      <div style="display:flex; gap:6px; margin-top:8px; flex-wrap:wrap;">
+        <a href="#" style="padding:4px 10px; background:#faf3e2; color:#8b6f4e; border:1px solid #ede2cc; border-radius:8px; font-size:11px; font-weight:600; text-decoration:none;">今日</a>
+        <a href="#" style="padding:4px 10px; background:#faf3e2; color:#8b6f4e; border:1px solid #ede2cc; border-radius:8px; font-size:11px; font-weight:600; text-decoration:none;">1週間</a>
+        <a href="#" style="padding:4px 10px; background:#faf3e2; color:#8b6f4e; border:1px solid #ede2cc; border-radius:8px; font-size:11px; font-weight:600; text-decoration:none;">1ヶ月</a>
+      </div>
+    </div>
+
     <div class="filter-row">
       <select>
-        <option>直近1週間</option>
-        <option>直近1ヶ月</option>
-        <option>すべて</option>
-      </select>
-      <select>
-        <option>すべて</option>
+        <option>昼夜：すべて</option>
         <option>昼</option>
         <option>夜</option>
+      </select>
+      <select>
+        <option>区分：すべて</option>
+        <option>乗合</option>
+        <option>貸切</option>
       </select>
     </div>
 

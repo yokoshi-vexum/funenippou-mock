@@ -230,7 +230,7 @@ table.data tbody tr:hover {
 }
 
 /* ── Form & Input ─────────────────────── */
-input.text, select.select {
+input.text, select.select, input.date {
   padding: 8px 12px;
   border: 1px solid #e2d4b8;
   border-radius: 8px;
@@ -238,6 +238,48 @@ input.text, select.select {
   background: #fffefa;
   color: #4a3a2c;
   font-family: inherit;
+}
+.date-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fffefa;
+  border: 1px solid #e2d4b8;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+.date-range input.date {
+  border: none;
+  padding: 4px 4px;
+  background: transparent;
+  font-size: 13px;
+}
+.date-range .sep {
+  color: #998166;
+  font-size: 13px;
+}
+.date-range .icon {
+  color: #998166;
+  font-size: 13px;
+  margin-right: 2px;
+}
+.date-presets {
+  display: inline-flex;
+  gap: 4px;
+}
+.date-presets a {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #faf3e2;
+  color: #8b6f4e;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ede2cc;
+}
+.date-presets a:hover {
+  background: #f5ecd6;
 }
 
 /* ── Tabs ─────────────────────── */
