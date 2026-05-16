@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>設定 ｜ 船日報</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="admin-shell">
+
+  <aside class="admin-nav">
+    <div class="brand">船日報<small>管理画面</small></div>
+    <ul>
+      <li><a href="admin.html"><span class="nav-icon">🏠</span>ダッシュボード</a></li>
+      <li><a href="admin-voyages.html"><span class="nav-icon">📋</span>便管理</a></li>
+      <li><a href="admin-analytics.html"><span class="nav-icon">📊</span>集計</a></li>
+    </ul>
+    <div class="nav-section">マスタ管理</div>
+    <ul>
+      <li><a href="admin-masters.html?tab=food"><span class="nav-icon">🍽</span>食事</a></li>
+      <li><a href="admin-masters.html?tab=drink"><span class="nav-icon">🍶</span>ドリンク</a></li>
+      <li><a href="admin-masters.html?tab=payment"><span class="nav-icon">💳</span>支払方法</a></li>
+      <li><a href="admin-masters.html?tab=ship"><span class="nav-icon">🚢</span>船 / QR</a></li>
+      <li><a href="admin-masters.html?tab=employee"><span class="nav-icon">👤</span>社員</a></li>
+    </ul>
+    <div class="nav-section">その他</div>
+    <ul>
+      <li><a href="admin-settings.html" class="active"><span class="nav-icon">⚙️</span>設定</a></li>
+      <li><a href="index.html"><span class="nav-icon">←</span>モック一覧</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>設定</h1>
+      <div class="meta">同期・バックアップ・ログ</div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">マスタ → フォーム同期</h2>
+      <p style="margin:0 0 12px; font-size:13px; color:#998166;">
+        食事・ドリンク・支払方法・船長候補のマスタを編集したら、ここから手動でフォームのプルダウン選択肢に反映できます。
+      </p>
+      <button class="btn btn-primary">🔄 同期を実行</button>
+      <button class="btn btn-secondary">差分プレビュー</button>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">同期履歴</h2>
+      <table class="data">
+        <thead>
+          <tr><th>実行日時</th><th>対象</th><th>件数</th><th>実行者</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026/5/16 09:12</td><td>食事マスタ</td><td>1件 追加</td><td>admin</td></tr>
+          <tr><td>2026/5/15 18:30</td><td>ドリンクマスタ</td><td>2件 追加 / 1件 非表示</td><td>admin</td></tr>
+          <tr><td>2026/5/14 11:08</td><td>支払方法マスタ</td><td>初期投入</td><td>admin</td></tr>
+          <tr><td>2026/5/13 14:55</td><td>全マスタ</td><td>初期同期</td><td>admin</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">操作ログ（直近）</h2>
+      <table class="data">
+        <thead>
+          <tr><th>日時</th><th>対象</th><th>操作</th><th>備考</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2026/5/16 22:15</td><td>便 2-20260516-夜</td><td>送信</td><td>③乗船後送信</td></tr>
+          <tr><td>2026/5/16 20:48</td><td>便 2-20260516-夜</td><td>送信</td><td>②乗船中送信</td></tr>
+          <tr><td>2026/5/16 17:42</td><td>便 2-20260516-夜</td><td>作成</td><td>①乗船前送信で便発番</td></tr>
+          <tr><td>2026/5/16 09:12</td><td>食事マスタ #6</td><td>追加</td><td>「うどん」</td></tr>
+          <tr><td>2026/5/15 22:30</td><td>便 1-20260515-夜</td><td>編集</td><td>支払方法 修正</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">バックアップ</h2>
+      <p style="margin:0 0 12px; font-size:13px; color:#998166;">
+        スプレッドシート全体を手元にダウンロードしておくと安心です。月1で実行推奨。
+      </p>
+      <button class="btn btn-primary">📥 バックアップをダウンロード</button>
+      <div style="margin-top:8px; font-size:11px; color:#998166;">前回実行：2026/5/1（前月）</div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">システム情報</h2>
+      <table class="data">
+        <tr><th style="width:200px;">スプレッドシートID</th><td>1Xx_xxx_xxxxxxxxxx</td></tr>
+        <tr><th>GASプロジェクト</th><td>船日報Script</td></tr>
+        <tr><th>Webアプリ URL</th><td>https://script.google.com/macros/s/.../exec</td></tr>
+        <tr><th>所有アカウント</th><td>client@example.com</td></tr>
+        <tr><th>バージョン</th><td>v1.0.0</td></tr>
+      </table>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

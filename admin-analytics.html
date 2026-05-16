@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>集計 ｜ 船日報</title>
+<link rel="stylesheet" href="admin.css">
+<style>
+  .line-chart {
+    height: 200px;
+    background: linear-gradient(to top, #f5ecd6, transparent);
+    border-radius: 8px;
+    position: relative;
+    margin-top: 8px;
+    padding: 12px;
+  }
+  .line-chart svg {
+    width: 100%;
+    height: 100%;
+  }
+  .legend {
+    display: flex;
+    gap: 14px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #6a4f30;
+  }
+  .legend .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .pie-chart-mock {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .pie {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(#b08660 0% 62%, #c9a987 62% 100%);
+    flex-shrink: 0;
+  }
+  .pie-legend {
+    flex: 1;
+    font-size: 13px;
+  }
+  .pie-legend .li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed #ede2cc;
+  }
+</style>
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="admin-shell">
+
+  <aside class="admin-nav">
+    <div class="brand">船日報<small>管理画面</small></div>
+    <ul>
+      <li><a href="admin.html"><span class="nav-icon">🏠</span>ダッシュボード</a></li>
+      <li><a href="admin-voyages.html"><span class="nav-icon">📋</span>便管理</a></li>
+      <li><a href="admin-analytics.html" class="active"><span class="nav-icon">📊</span>集計</a></li>
+    </ul>
+    <div class="nav-section">マスタ管理</div>
+    <ul>
+      <li><a href="admin-masters.html?tab=food"><span class="nav-icon">🍽</span>食事</a></li>
+      <li><a href="admin-masters.html?tab=drink"><span class="nav-icon">🍶</span>ドリンク</a></li>
+      <li><a href="admin-masters.html?tab=payment"><span class="nav-icon">💳</span>支払方法</a></li>
+      <li><a href="admin-masters.html?tab=ship"><span class="nav-icon">🚢</span>船 / QR</a></li>
+      <li><a href="admin-masters.html?tab=employee"><span class="nav-icon">👤</span>社員</a></li>
+    </ul>
+    <div class="nav-section">その他</div>
+    <ul>
+      <li><a href="admin-settings.html"><span class="nav-icon">⚙️</span>設定</a></li>
+      <li><a href="index.html"><span class="nav-icon">←</span>モック一覧</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>集計</h1>
+      <div class="meta">乗合／貸切・期間・船別でグラフ表示</div>
+    </div>
+
+    <div class="toolbar">
+      <select class="select">
+        <option>期間：直近1ヶ月</option>
+        <option>直近1週間</option>
+        <option>直近3ヶ月</option>
+      </select>
+      <select class="select">
+        <option>船：すべて</option>
+        <option>第十八あみ達丸</option>
+      </select>
+      <select class="select">
+        <option>区分：すべて</option>
+        <option>乗合</option>
+        <option>貸切</option>
+      </select>
+      <select class="select">
+        <option>昼夜：すべて</option>
+      </select>
+      <div class="spacer"></div>
+      <button class="btn btn-secondary">Looker Studio で開く</button>
+      <button class="btn btn-secondary">CSVダウンロード</button>
+    </div>
+
+    <div class="chart-grid">
+
+      <div class="chart-box">
+        <h3>🍽 人気の食事（飲食された数）</h3>
+        <div class="bar-chart">
+          <div class="bar-row"><span class="bar-label">刺身盛り合わせ</span><div class="bar"><div class="bar-fill" style="width:96%;"></div></div><span class="bar-value">182</span></div>
+          <div class="bar-row"><span class="bar-label">天ぷら</span><div class="bar"><div class="bar-fill" style="width:88%;"></div></div><span class="bar-value">167</span></div>
+          <div class="bar-row"><span class="bar-label">茶碗蒸し</span><div class="bar"><div class="bar-fill" style="width:62%;"></div></div><span class="bar-value">118</span></div>
+          <div class="bar-row"><span class="bar-label">唐揚げ</span><div class="bar"><div class="bar-fill" style="width:55%;"></div></div><span class="bar-value">104</span></div>
+          <div class="bar-row"><span class="bar-label">焼き魚</span><div class="bar"><div class="bar-fill" style="width:42%;"></div></div><span class="bar-value">80</span></div>
+          <div class="bar-row"><span class="bar-label">うどん</span><div class="bar"><div class="bar-fill" style="width:28%;"></div></div><span class="bar-value">53</span></div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>🍶 人気のドリンク（飲まれた数）</h3>
+        <div class="bar-chart">
+          <div class="bar-row"><span class="bar-label">ビール（生）</span><div class="bar"><div class="bar-fill" style="width:98%;"></div></div><span class="bar-value">190</span></div>
+          <div class="bar-row"><span class="bar-label">ハイボール</span><div class="bar"><div class="bar-fill" style="width:74%;"></div></div><span class="bar-value">143</span></div>
+          <div class="bar-row"><span class="bar-label">日本酒</span><div class="bar"><div class="bar-fill" style="width:58%;"></div></div><span class="bar-value">112</span></div>
+          <div class="bar-row"><span class="bar-label">焼酎</span><div class="bar"><div class="bar-fill" style="width:38%;"></div></div><span class="bar-value">73</span></div>
+          <div class="bar-row"><span class="bar-label">ソフトドリンク</span><div class="bar"><div class="bar-fill" style="width:34%;"></div></div><span class="bar-value">65</span></div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>📦 残りやすい食事</h3>
+        <div class="bar-chart">
+          <div class="bar-row"><span class="bar-label">焼き魚</span><div class="bar"><div class="bar-fill" style="width:62%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">42</span></div>
+          <div class="bar-row"><span class="bar-label">うどん</span><div class="bar"><div class="bar-fill" style="width:48%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">32</span></div>
+          <div class="bar-row"><span class="bar-label">唐揚げ</span><div class="bar"><div class="bar-fill" style="width:36%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">24</span></div>
+          <div class="bar-row"><span class="bar-label">茶碗蒸し</span><div class="bar"><div class="bar-fill" style="width:22%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">15</span></div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>🍶 飲まれにくいドリンク</h3>
+        <div class="bar-chart">
+          <div class="bar-row"><span class="bar-label">焼酎</span><div class="bar"><div class="bar-fill" style="width:54%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">38</span></div>
+          <div class="bar-row"><span class="bar-label">ソフトドリンク</span><div class="bar"><div class="bar-fill" style="width:42%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">30</span></div>
+          <div class="bar-row"><span class="bar-label">日本酒</span><div class="bar"><div class="bar-fill" style="width:18%; background:linear-gradient(90deg,#d8ad88,#c89460);"></div></div><span class="bar-value">12</span></div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>🎌 乗合 vs 貸切 構成比（直近1ヶ月）</h3>
+        <div class="pie-chart-mock">
+          <div class="pie"></div>
+          <div class="pie-legend">
+            <div class="li"><span><span class="dot" style="background:#b08660;"></span>貸切</span><span><strong>62%</strong>（116便）</span></div>
+            <div class="li"><span><span class="dot" style="background:#c9a987;"></span>乗合</span><span><strong>38%</strong>（71便）</span></div>
+            <div style="font-size:11px;color:#998166;margin-top:8px;">合計 187便</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <h3>📈 日別便数推移</h3>
+        <div class="line-chart">
+          <svg viewBox="0 0 400 200" preserveAspectRatio="none">
+            <polyline points="0,150 30,130 60,140 90,90 120,110 150,80 180,70 210,90 240,50 270,80 300,60 330,40 360,70 390,50"
+              fill="none" stroke="#b08660" stroke-width="2"/>
+            <polyline points="0,170 30,160 60,150 90,140 120,150 150,130 180,120 210,135 240,115 270,125 300,110 330,100 360,115 390,110"
+              fill="none" stroke="#c9a987" stroke-width="2" stroke-dasharray="4 4"/>
+          </svg>
+        </div>
+        <div class="legend">
+          <span><span class="dot" style="background:#b08660;"></span>全便数</span>
+          <span><span class="dot" style="background:#c9a987;"></span>うち貸切</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

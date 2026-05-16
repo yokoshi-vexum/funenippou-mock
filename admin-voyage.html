@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>便詳細 ｜ 船日報</title>
+<link rel="stylesheet" href="admin.css">
+<style>
+  .voyage-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .info-block {
+    background: #fffbf3;
+    border: 1px solid #ede2cc;
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .info-block .lbl {
+    font-size: 11px;
+    color: #998166;
+    margin-bottom: 4px;
+  }
+  .info-block .val {
+    font-size: 15px;
+    font-weight: 600;
+    color: #5a4a3a;
+  }
+  .detail-section {
+    margin-bottom: 24px;
+  }
+  .detail-section .pane-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .detail-section h2 {
+    font-size: 16px;
+    color: #6a4f30;
+    margin: 0;
+  }
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px 24px;
+    margin-bottom: 12px;
+  }
+  .item-grid .row {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px dashed #ede2cc;
+    padding: 6px 0;
+  }
+  .item-grid .row .k {
+    font-size: 11px;
+    color: #998166;
+  }
+  .item-grid .row .v {
+    font-size: 14px;
+    color: #4a3a2c;
+  }
+  .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .item-tags .tag {
+    background: #f5ecd6;
+    color: #6a4f30;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="admin-shell">
+
+  <aside class="admin-nav">
+    <div class="brand">船日報<small>管理画面</small></div>
+    <ul>
+      <li><a href="admin.html"><span class="nav-icon">🏠</span>ダッシュボード</a></li>
+      <li><a href="admin-voyages.html" class="active"><span class="nav-icon">📋</span>便管理</a></li>
+      <li><a href="admin-analytics.html"><span class="nav-icon">📊</span>集計</a></li>
+    </ul>
+    <div class="nav-section">マスタ管理</div>
+    <ul>
+      <li><a href="admin-masters.html?tab=food"><span class="nav-icon">🍽</span>食事</a></li>
+      <li><a href="admin-masters.html?tab=drink"><span class="nav-icon">🍶</span>ドリンク</a></li>
+      <li><a href="admin-masters.html?tab=payment"><span class="nav-icon">💳</span>支払方法</a></li>
+      <li><a href="admin-masters.html?tab=ship"><span class="nav-icon">🚢</span>船 / QR</a></li>
+      <li><a href="admin-masters.html?tab=employee"><span class="nav-icon">👤</span>社員</a></li>
+    </ul>
+    <div class="nav-section">その他</div>
+    <ul>
+      <li><a href="admin-settings.html"><span class="nav-icon">⚙️</span>設定</a></li>
+      <li><a href="index.html"><span class="nav-icon">←</span>モック一覧</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>便詳細</h1>
+      <div class="meta"><a href="admin-voyages.html" style="color:#b08660;">← 便一覧へ</a></div>
+    </div>
+
+    <div class="voyage-info">
+      <div class="info-block"><div class="lbl">便ID</div><div class="val">2-20260516-夜</div></div>
+      <div class="info-block"><div class="lbl">日付・昼夜</div><div class="val">2026/5/16・🌙 夜</div></div>
+      <div class="info-block"><div class="lbl">船</div><div class="val">🚢 第十八あみ達丸</div></div>
+      <div class="info-block"><div class="lbl">区分</div><div class="val">🎌 貸切</div></div>
+      <div class="info-block"><div class="lbl">団体名</div><div class="val">○○商事 様</div></div>
+      <div class="info-block"><div class="lbl">船長</div><div class="val">山田 太郎</div></div>
+      <div class="info-block"><div class="lbl">送信状態</div><div class="val"><span class="pill pill-done">①②③完了</span></div></div>
+      <div class="info-block"><div class="lbl">最終更新</div><div class="val">2026/5/16 22:15</div></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="spacer"></div>
+      <button class="btn btn-secondary">PDFエクスポート</button>
+      <button class="btn btn-secondary">編集する</button>
+      <button class="btn btn-danger">便を削除</button>
+    </div>
+
+    <!-- ① 乗船前 -->
+    <div class="card detail-section">
+      <div class="pane-head">
+        <h2>① 乗船前チェック</h2>
+        <span class="pill pill-done">送信済 17:42</span>
+      </div>
+      <div class="item-grid">
+        <div class="row"><span class="k">船の水</span><span class="v">✓ 十分</span></div>
+        <div class="row"><span class="k">燃料</span><span class="v">満タン</span></div>
+        <div class="row"><span class="k">エンジン</span><span class="v">✓ 良好</span></div>
+        <div class="row"><span class="k">発電機</span><span class="v">✓ 良好</span></div>
+        <div class="row"><span class="k">カラオケ</span><span class="v">✓ 異常なし</span></div>
+        <div class="row"><span class="k">マイク</span><span class="v">✓ 異常なし</span></div>
+        <div class="row"><span class="k">冷蔵庫</span><span class="v">電源ON / 4℃</span></div>
+        <div class="row"><span class="k">冷水器</span><span class="v">✓ 冷えてる</span></div>
+        <div class="row"><span class="k">食洗機洗剤</span><span class="v">✓ 確認済</span></div>
+        <div class="row"><span class="k">食器・グラス汚れ</span><span class="v">なし</span></div>
+        <div class="row"><span class="k">ちょうちん</span><span class="v">球切れなし</span></div>
+      </div>
+      <div style="margin-top:14px;">
+        <div class="k" style="font-size:12px; color:#998166;">当日のメンバー</div>
+        <div class="item-tags">
+          <span class="tag">👤 山田 太郎（社員）</span>
+          <span class="tag">👤 鈴木 一郎（社員）</span>
+          <span class="tag">👤 田中 信（社員）</span>
+          <span class="tag">👤 田中 花子（アルバイト）</span>
+          <span class="tag">👤 伊藤 美咲（アルバイト）</span>
+        </div>
+      </div>
+      <div style="margin-top:12px;">
+        <div class="k" style="font-size:12px; color:#998166;">体調</div>
+        <div class="v" style="font-size:14px; margin-top:4px;">✓ 全員良好</div>
+      </div>
+    </div>
+
+    <!-- ② 乗船中 -->
+    <div class="card detail-section">
+      <div class="pane-head">
+        <h2>② 乗船中の記録</h2>
+        <span class="pill pill-done">送信済 20:48</span>
+      </div>
+      <div class="item-grid">
+        <div class="row"><span class="k">記入者</span><span class="v">田中 花子（アルバイト）</span></div>
+        <div class="row"><span class="k">お客様の反応</span><span class="v">とても喜んでいた</span></div>
+        <div class="row"><span class="k">食べた量</span><span class="v">よく食べた</span></div>
+        <div class="row"><span class="k">飲んだ量</span><span class="v">よく飲んだ</span></div>
+      </div>
+      <div style="margin-top:10px;">
+        <div class="k" style="font-size:12px; color:#998166;">反応の理由</div>
+        <div class="v" style="font-size:13px; margin-top:4px;">天ぷらの揚げたてが特に好評。船からの夜景もちょうど良い時間帯で皆さん撮影されていた。</div>
+      </div>
+      <div style="margin-top:12px;">
+        <div class="k" style="font-size:12px; color:#998166;">食べた種類</div>
+        <div class="item-tags">
+          <span class="tag">刺身盛り合わせ</span>
+          <span class="tag">天ぷら</span>
+          <span class="tag">茶碗蒸し</span>
+        </div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="k" style="font-size:12px; color:#998166;">残った種類</div>
+        <div class="item-tags">
+          <span class="tag">唐揚げ</span>
+          <span class="tag">焼き魚</span>
+        </div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="k" style="font-size:12px; color:#998166;">飲んだ種類</div>
+        <div class="item-tags">
+          <span class="tag">ビール（生）</span>
+          <span class="tag">日本酒</span>
+          <span class="tag">ハイボール</span>
+        </div>
+      </div>
+      <div style="margin-top:8px;">
+        <div class="k" style="font-size:12px; color:#998166;">飲まなかった種類</div>
+        <div class="item-tags">
+          <span class="tag">焼酎</span>
+          <span class="tag">ソフトドリンク</span>
+        </div>
+      </div>
+      <div style="margin-top:14px;">
+        <div class="k" style="font-size:12px; color:#998166;">備考</div>
+        <div class="v" style="font-size:13px; margin-top:4px; color:#998166; font-style:italic;">（記入なし）</div>
+      </div>
+    </div>
+
+    <!-- ③ 乗船後 -->
+    <div class="card detail-section">
+      <div class="pane-head">
+        <h2>③ 乗船後チェック</h2>
+        <span class="pill pill-done">送信済 22:15</span>
+      </div>
+      <div class="item-grid">
+        <div class="row"><span class="k">ロープ</span><span class="v">✓ 確認済</span></div>
+        <div class="row"><span class="k">船の戸締り</span><span class="v">✓ 確認済</span></div>
+        <div class="row"><span class="k">支払い</span><span class="v">✓ 事務所に渡し済</span></div>
+        <div class="row"><span class="k">支払方法</span><span class="v">カード</span></div>
+      </div>
+      <div style="margin-top:14px;">
+        <div class="k" style="font-size:12px; color:#998166;">コメント</div>
+        <div class="v" style="font-size:13px; margin-top:4px;">またのご利用とのこと。次回も同じメンバーで予定。</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

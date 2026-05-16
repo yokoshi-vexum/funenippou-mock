@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>マスタ管理 ｜ 船日報</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="admin-shell">
+
+  <aside class="admin-nav">
+    <div class="brand">船日報<small>管理画面</small></div>
+    <ul>
+      <li><a href="admin.html"><span class="nav-icon">🏠</span>ダッシュボード</a></li>
+      <li><a href="admin-voyages.html"><span class="nav-icon">📋</span>便管理</a></li>
+      <li><a href="admin-analytics.html"><span class="nav-icon">📊</span>集計</a></li>
+    </ul>
+    <div class="nav-section">マスタ管理</div>
+    <ul>
+      <li><a href="admin-masters.html?tab=food" id="nav-food"><span class="nav-icon">🍽</span>食事</a></li>
+      <li><a href="admin-masters.html?tab=drink" id="nav-drink"><span class="nav-icon">🍶</span>ドリンク</a></li>
+      <li><a href="admin-masters.html?tab=payment" id="nav-payment"><span class="nav-icon">💳</span>支払方法</a></li>
+      <li><a href="admin-masters.html?tab=ship" id="nav-ship"><span class="nav-icon">🚢</span>船 / QR</a></li>
+      <li><a href="admin-masters.html?tab=employee" id="nav-employee"><span class="nav-icon">👤</span>社員</a></li>
+    </ul>
+    <div class="nav-section">その他</div>
+    <ul>
+      <li><a href="admin-settings.html"><span class="nav-icon">⚙️</span>設定</a></li>
+      <li><a href="index.html"><span class="nav-icon">←</span>モック一覧</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>マスタ管理</h1>
+      <div class="meta">追加・編集・削除（非表示）で運用</div>
+    </div>
+
+    <div class="tabs">
+      <a href="?tab=food" id="tab-food">🍽 食事</a>
+      <a href="?tab=drink" id="tab-drink">🍶 ドリンク</a>
+      <a href="?tab=payment" id="tab-payment">💳 支払方法</a>
+      <a href="?tab=ship" id="tab-ship">🚢 船 / QR</a>
+      <a href="?tab=employee" id="tab-employee">👤 社員</a>
+    </div>
+
+    <!-- 食事 -->
+    <div id="pane-food" class="pane">
+      <div class="toolbar">
+        <input class="text" placeholder="🔍 名前で検索">
+        <div class="spacer"></div>
+        <button class="btn btn-secondary">並び替え</button>
+        <button class="btn btn-primary">＋ 食事を追加</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="data">
+          <thead>
+            <tr><th style="width:60px;">ID</th><th>名前</th><th style="width:90px;">表示順</th><th style="width:80px;">有効</th><th style="width:180px;">操作</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>刺身盛り合わせ</td><td>10</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>2</td><td>天ぷら</td><td>20</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>3</td><td>唐揚げ</td><td>30</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>4</td><td>茶碗蒸し</td><td>40</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>5</td><td>焼き魚</td><td>50</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>6</td><td>うどん</td><td>60</td><td><span class="pill pill-pending">非表示</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>99</td><td>特になし</td><td>999</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ドリンク -->
+    <div id="pane-drink" class="pane" style="display:none;">
+      <div class="toolbar">
+        <input class="text" placeholder="🔍 名前で検索">
+        <div class="spacer"></div>
+        <button class="btn btn-secondary">並び替え</button>
+        <button class="btn btn-primary">＋ ドリンクを追加</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="data">
+          <thead>
+            <tr><th style="width:60px;">ID</th><th>名前</th><th style="width:90px;">表示順</th><th style="width:80px;">有効</th><th style="width:180px;">操作</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>ビール（生）</td><td>10</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>2</td><td>日本酒</td><td>20</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>3</td><td>焼酎</td><td>30</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>4</td><td>ハイボール</td><td>40</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>5</td><td>ソフトドリンク</td><td>50</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>99</td><td>特になし</td><td>999</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 支払方法 -->
+    <div id="pane-payment" class="pane" style="display:none;">
+      <div class="toolbar">
+        <div class="spacer"></div>
+        <button class="btn btn-primary">＋ 支払方法を追加</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="data">
+          <thead><tr><th style="width:60px;">ID</th><th>名前</th><th style="width:90px;">表示順</th><th style="width:80px;">有効</th><th style="width:180px;">操作</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>現金</td><td>10</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>2</td><td>カード</td><td>20</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>3</td><td>振込</td><td>30</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+            <tr><td>4</td><td>後日請求</td><td>40</td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">削除</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 船 / QR -->
+    <div id="pane-ship" class="pane" style="display:none;">
+      <div class="toolbar">
+        <input class="text" placeholder="🔍 船名で検索">
+        <div class="spacer"></div>
+        <button class="btn btn-secondary">QR一括印刷</button>
+        <button class="btn btn-primary">＋ 船を追加</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="data">
+          <thead>
+            <tr>
+              <th style="width:50px;">ID</th>
+              <th>船名</th>
+              <th>タイプ</th>
+              <th style="width:80px;">QR</th>
+              <th style="width:80px;">有効</th>
+              <th style="width:240px;">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>大和</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>2</td><td>第十八あみ達丸</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>3</td><td>瑞宝</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>4</td><td>ひので</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>5</td><td>サスケ</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>6</td><td>第十六あみ達丸</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>7</td><td>えびす</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>8</td><td>第十五あみ達丸</td><td>座敷式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>9</td><td>あづま</td><td>椅子・テーブル式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+            <tr><td>10</td><td>634 むさし</td><td>椅子・テーブル式</td><td><span class="qr-thumb"></span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-secondary btn-sm">QR印刷</a> <a class="btn btn-secondary btn-sm">再発行</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 社員 -->
+    <div id="pane-employee" class="pane" style="display:none;">
+      <div class="toolbar">
+        <input class="text" placeholder="🔍 名前で検索">
+        <div class="spacer"></div>
+        <button class="btn btn-primary">＋ 社員を追加</button>
+      </div>
+      <div class="card" style="padding:0;">
+        <table class="data">
+          <thead><tr><th style="width:60px;">ID</th><th>名前</th><th style="width:120px;">船長として選択可</th><th style="width:80px;">有効</th><th style="width:180px;">操作</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>山田 太郎</td><td><span class="pill pill-done">可</span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">無効化</a></td></tr>
+            <tr><td>2</td><td>鈴木 一郎</td><td><span class="pill pill-done">可</span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">無効化</a></td></tr>
+            <tr><td>3</td><td>佐藤 健</td><td><span class="pill pill-done">可</span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">無効化</a></td></tr>
+            <tr><td>4</td><td>田中 信</td><td><span class="pill pill-done">可</span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">無効化</a></td></tr>
+            <tr><td>5</td><td>高橋 進</td><td><span class="pill pill-pending">不可</span></td><td><span class="pill pill-done">有効</span></td><td><a class="btn btn-secondary btn-sm">編集</a> <a class="btn btn-danger btn-sm">無効化</a></td></tr>
+            <tr><td>6</td><td>伊藤 浩</td><td><span class="pill pill-pending">不可</span></td><td><span class="pill pill-pending">無効</span></td><td><a class="btn btn-secondary btn-sm">編集</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  (function(){
+    var params = new URLSearchParams(location.search);
+    var tab = params.get('tab') || 'food';
+    var tabs = ['food','drink','payment','ship','employee'];
+    tabs.forEach(function(t){
+      var pane = document.getElementById('pane-' + t);
+      var navItem = document.getElementById('nav-' + t);
+      var tabItem = document.getElementById('tab-' + t);
+      if (t === tab) {
+        if (pane) pane.style.display = '';
+        if (navItem) navItem.classList.add('active');
+        if (tabItem) tabItem.classList.add('active');
+      } else {
+        if (pane) pane.style.display = 'none';
+      }
+    });
+  })();
+</script>
+</body>
+</html>

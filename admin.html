@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>船日報 管理画面</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="mock-badge">MOCK</div>
+<div class="admin-shell">
+
+  <aside class="admin-nav">
+    <div class="brand">船日報<small>管理画面</small></div>
+    <ul>
+      <li><a href="admin.html" class="active"><span class="nav-icon">🏠</span>ダッシュボード</a></li>
+      <li><a href="admin-voyages.html"><span class="nav-icon">📋</span>便管理</a></li>
+      <li><a href="admin-analytics.html"><span class="nav-icon">📊</span>集計</a></li>
+    </ul>
+    <div class="nav-section">マスタ管理</div>
+    <ul>
+      <li><a href="admin-masters.html?tab=food"><span class="nav-icon">🍽</span>食事</a></li>
+      <li><a href="admin-masters.html?tab=drink"><span class="nav-icon">🍶</span>ドリンク</a></li>
+      <li><a href="admin-masters.html?tab=payment"><span class="nav-icon">💳</span>支払方法</a></li>
+      <li><a href="admin-masters.html?tab=ship"><span class="nav-icon">🚢</span>船 / QR</a></li>
+      <li><a href="admin-masters.html?tab=employee"><span class="nav-icon">👤</span>社員</a></li>
+    </ul>
+    <div class="nav-section">その他</div>
+    <ul>
+      <li><a href="admin-settings.html"><span class="nav-icon">⚙️</span>設定</a></li>
+      <li><a href="index.html"><span class="nav-icon">←</span>モック一覧</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+    <div class="page-header">
+      <h1>ダッシュボード</h1>
+      <div class="meta">2026年5月16日（金）・第十八あみ達丸 ほか9隻</div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi">
+        <div class="label">本日の便数</div>
+        <div class="value">5<small>件</small></div>
+      </div>
+      <div class="kpi">
+        <div class="label">完了便（①②③送信済）</div>
+        <div class="value">3<small>件</small></div>
+      </div>
+      <div class="kpi alert">
+        <div class="label">未完了便</div>
+        <div class="value">2<small>件</small></div>
+      </div>
+      <div class="kpi">
+        <div class="label">体調不良</div>
+        <div class="value">0<small>件</small></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">船別ステータス（本日）</h2>
+      <div class="status-grid">
+        <div class="status-card">
+          <div class="name">🚢 第十八あみ達丸</div>
+          <div class="status-row">
+            <div class="status-step done">①</div>
+            <div class="status-step done">②</div>
+            <div class="status-step done">③</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="name">🚢 大和</div>
+          <div class="status-row">
+            <div class="status-step done">①</div>
+            <div class="status-step done">②</div>
+            <div class="status-step">③</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="name">🚢 瑞宝</div>
+          <div class="status-row">
+            <div class="status-step done">①</div>
+            <div class="status-step">②</div>
+            <div class="status-step">③</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="name">🚢 ひので</div>
+          <div class="status-row">
+            <div class="status-step done">①</div>
+            <div class="status-step done">②</div>
+            <div class="status-step done">③</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="name">🚢 サスケ</div>
+          <div class="status-row">
+            <div class="status-step done">①</div>
+            <div class="status-step done">②</div>
+            <div class="status-step done">③</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <div class="name">🚢 第十六あみ達丸</div>
+          <div class="status-row">
+            <div class="status-step">①</div>
+            <div class="status-step">②</div>
+            <div class="status-step">③</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 class="card-title">最近の便</h2>
+      <table class="data">
+        <thead>
+          <tr>
+            <th>日付</th>
+            <th>船</th>
+            <th>昼夜</th>
+            <th>区分</th>
+            <th>団体</th>
+            <th>船長</th>
+            <th>状態</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026/5/16</td>
+            <td>第十八あみ達丸</td>
+            <td>🌙 夜</td>
+            <td><span class="pill pill-info">貸切</span></td>
+            <td>○○商事 様</td>
+            <td>山田 太郎</td>
+            <td><span class="pill pill-done">完了</span></td>
+            <td><a href="admin-voyage.html" class="btn btn-secondary btn-sm">詳細</a></td>
+          </tr>
+          <tr>
+            <td>2026/5/16</td>
+            <td>大和</td>
+            <td>☀️ 昼</td>
+            <td><span class="pill pill-info">乗合</span></td>
+            <td>—</td>
+            <td>鈴木 一郎</td>
+            <td><span class="pill pill-warn">③未送信</span></td>
+            <td><a href="admin-voyage.html" class="btn btn-secondary btn-sm">詳細</a></td>
+          </tr>
+          <tr>
+            <td>2026/5/16</td>
+            <td>瑞宝</td>
+            <td>🌙 夜</td>
+            <td><span class="pill pill-info">貸切</span></td>
+            <td>△△会</td>
+            <td>佐藤 健</td>
+            <td><span class="pill pill-warn">②③未送信</span></td>
+            <td><a href="admin-voyage.html" class="btn btn-secondary btn-sm">詳細</a></td>
+          </tr>
+          <tr>
+            <td>2026/5/16</td>
+            <td>ひので</td>
+            <td>🌙 夜</td>
+            <td><span class="pill pill-info">貸切</span></td>
+            <td>□□グループ 様</td>
+            <td>田中 信</td>
+            <td><span class="pill pill-done">完了</span></td>
+            <td><a href="admin-voyage.html" class="btn btn-secondary btn-sm">詳細</a></td>
+          </tr>
+          <tr>
+            <td>2026/5/16</td>
+            <td>サスケ</td>
+            <td>☀️ 昼</td>
+            <td><span class="pill pill-info">乗合</span></td>
+            <td>—</td>
+            <td>山田 太郎</td>
+            <td><span class="pill pill-done">完了</span></td>
+            <td><a href="admin-voyage.html" class="btn btn-secondary btn-sm">詳細</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
